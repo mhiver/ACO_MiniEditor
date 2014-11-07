@@ -25,15 +25,15 @@ public class Paste implements Command
 	 * @ordered
 	 */
 	
-	private UI uI;
+	// private UI uI;
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param editorEngine
+	 * @param uI
 	 */
-	public Paste(){
-		super();
+	public Paste(EditorEngine editorEngine) {
+		this.editorEngine = editorEngine;
+		// this.uI = uI;
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Paste implements Command
 	 */
 	
 	public void execute() {
-		// TODO implement me	
+		editorEngine.paste();
 	}
 	
 }

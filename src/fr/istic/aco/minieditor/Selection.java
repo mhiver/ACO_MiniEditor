@@ -16,15 +16,39 @@ public class Selection
 	 * @ordered
 	 */
 	
-	public EditorEngineImpl editorEngineImpl;
-	
+	private EditorEngineImpl editorEngineImpl;
+
+	private int start;
+	private int end;
+		
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param editorEngineImpl
 	 */
-	public Selection(){
-		super();
+	public Selection(EditorEngineImpl editorEngineImpl) {
+		this.editorEngineImpl = editorEngineImpl;
+		this.start = 0;
+		setLength(0);
+	}
+
+	public int getStart() {
+		return start;
+	}
+	
+	public int getEnd() {
+		return end;
+	}
+	
+	public void setStart(int s) {
+		start = s;
+	}
+	
+	public void setEnd(int e) {
+		end = e;
+	}
+	
+	// FIXME: -1 ou pas ?
+	public void setLength(int l) {
+		end = start + l - 1;
 	}
 
 }

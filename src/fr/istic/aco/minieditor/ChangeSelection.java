@@ -45,14 +45,18 @@ public class ChangeSelection implements Command
 	
 	private UI uI;
 	
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param start
+	 * @param end
+	 * @param editorEngine
+	 * @param uI
 	 */
-	public ChangeSelection(){
-		super();
+	public ChangeSelection(EditorEngine editorEngine, UI uI) {
+		this.editorEngine = editorEngine;
+		this.uI = uI;
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,7 +66,9 @@ public class ChangeSelection implements Command
 	 */
 	
 	public void execute() {
-		// TODO implement me	
+		start = uI.getStart();
+		end = uI.getEnd();
+		editorEngine.changeSelection(start, end);
 	}
 	
 }

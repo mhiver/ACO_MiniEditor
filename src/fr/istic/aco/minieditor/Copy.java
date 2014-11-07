@@ -25,15 +25,16 @@ public class Copy implements Command
 	 * @ordered
 	 */
 	
-	private UI uI;
+	// private UI uI;
+	
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param editorEngine
+	 * @param uI
 	 */
-	public Copy(){
-		super();
+	public Copy(EditorEngine editorEngine) {
+		this.editorEngine = editorEngine;
+		// this.uI = uI;
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class Copy implements Command
 	 */
 	
 	public void execute() {
-		// TODO implement me	
+		editorEngine.copy();
 	}
 	
 }

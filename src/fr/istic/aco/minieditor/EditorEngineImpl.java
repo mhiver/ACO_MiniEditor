@@ -43,7 +43,7 @@ public class EditorEngineImpl implements EditorEngine
 	 * @ordered
 	 */
 	
-	public EnterText enterText;
+	private EnterText enterText;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class EditorEngineImpl implements EditorEngine
 	 * @ordered
 	 */
 	
-	public AppEditor appEditor;
+	private AppEditor appEditor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,7 +61,7 @@ public class EditorEngineImpl implements EditorEngine
 	 * @ordered
 	 */
 	
-	public ChangeSelection changeSelection;
+	private ChangeSelection changeSelection;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class EditorEngineImpl implements EditorEngine
 	 * @ordered
 	 */
 	
-	public Cut cut;
+	private Cut cut;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class EditorEngineImpl implements EditorEngine
 	 * @ordered
 	 */
 	
-	public Paste paste;
+	private Paste paste;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,15 +88,44 @@ public class EditorEngineImpl implements EditorEngine
 	 * @ordered
 	 */
 	
-	public Copy copy;
+	private Copy copy;
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param buffer
+	 * @param clipboard
+	 * @param selection
+	 * @param enterText
+	 * @param appEditor
+	 * @param changeSelection
+	 * @param cut
+	 * @param paste
+	 * @param copy
 	 */
-	public EditorEngineImpl(){
-		super();
+	public EditorEngineImpl() {
+		this.buffer = new Buffer(this);
+		this.clipboard = new Clipboard(this);
+		this.selection = new Selection(this);
+		/*
+		this.appEditor = appEditor;
+		this.enterText = enterText;
+		this.changeSelection = changeSelection;
+		this.cut = cut;
+		this.paste = paste;
+		this.copy = copy;
+		*/
+	}
+
+	private void setSelectionText(String text) {
+		int start = selection.getStart();
+		int end = selection.getEnd();
+		buffer.setContent(start, end, text);
+		selection.setLength(text.length());	
+	}
+	
+	private String getSelectionText() {
+		int start = selection.getStart();
+		int end = selection.getEnd();
+		return buffer.getContent(start, end);
 	}
 
 	/**
@@ -107,7 +136,8 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	
 	public void changeSelection(int start, int end) {
-		// TODO implement me	
+		selection.setStart(start);
+		selection.setEnd(end);
 	}
 	
 	/**
@@ -118,7 +148,8 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	
 	public void copy() {
-		// TODO implement me	
+		String text = getSelectionText();
+		clipboard.setText(text);
 	}
 	
 	/**
@@ -129,7 +160,7 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	
 	public void enterText(String text) {
-		// TODO implement me	
+		setSelectionText(text);
 	}
 	
 	/**
@@ -140,7 +171,8 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	
 	public void paste() {
-		// TODO implement me	
+		String text = clipboard.getText();	
+		setSelectionText(text);
 	}
 	
 	/**
@@ -151,7 +183,9 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	
 	public void cut() {
-		// TODO implement me	
+		String text = getSelectionText();
+		clipboard.setText(text);
+		setSelectionText("");
 	}
 	
 }

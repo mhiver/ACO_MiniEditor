@@ -16,15 +16,26 @@ public class Clipboard
 	 * @ordered
 	 */
 	
-	public EditorEngineImpl editorEngineImpl;
+	private EditorEngineImpl editorEngineImpl;
 	
+	private String text;
+	
+		
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param editorEngineImpl
+	 * @param text
 	 */
-	public Clipboard(){
-		super();
+	public Clipboard(EditorEngineImpl editorEngineImpl) {
+		this.editorEngineImpl = editorEngineImpl;
+		this.text = "";
+	}
+
+	public void setText(String s) {
+		text = s;
+	}
+	
+	public String getText() {
+		return text;
 	}
 
 }

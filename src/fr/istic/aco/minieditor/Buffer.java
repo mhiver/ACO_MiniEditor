@@ -16,15 +16,26 @@ public class Buffer
 	 * @ordered
 	 */
 	
-	public EditorEngineImpl editorEngineImpl;
+	private EditorEngineImpl editorEngineImpl;
 	
+	private StringBuffer buffer;
+	
+		
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param editorEngineImpl
+	 * @param buffer
 	 */
-	public Buffer(){
-		super();
+	public Buffer(EditorEngineImpl editorEngineImpl) {
+		this.editorEngineImpl = editorEngineImpl;
+		this.buffer = new StringBuffer();
+	}
+
+	public String getContent(int start, int end) {
+		return buffer.substring(start, end);
+	}
+	
+	public void setContent(int start, int end, String text) {
+		buffer.replace(start, end, text);
 	}
 
 }

@@ -37,12 +37,13 @@ public class EnterText implements Command
 	private UI uI;
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @param text
+	 * @param editorEngine
+	 * @param uI
 	 */
-	public EnterText(){
-		super();
+	public EnterText(EditorEngine editorEngine, UI uI) {
+		this.editorEngine = editorEngine;
+		this.uI = uI;
 	}
 
 	/**
@@ -53,7 +54,8 @@ public class EnterText implements Command
 	 */
 	
 	public void execute() {
-		// TODO implement me	
+		text = uI.getText();
+		editorEngine.enterText(text);
 	}
 	
 }
