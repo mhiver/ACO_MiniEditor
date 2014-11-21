@@ -1,14 +1,14 @@
+/**
+ * 
+ */
 package fr.istic.aco.minieditor;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * @author 12001247
+ *
  */
+public class PrintData implements Command {
 
-public class Paste implements Command
-{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -18,10 +18,11 @@ public class Paste implements Command
 	
 	private EditorEngine editorEngine;
 	
+	
 	/**
 	 * @param editorEngine
 	 */
-	public Paste(EditorEngine editorEngine) {
+	public PrintData(EditorEngine editorEngine) {
 		this.editorEngine = editorEngine;
 	}
 
@@ -33,14 +34,12 @@ public class Paste implements Command
 	 */
 	
 	public void execute() {
-		editorEngine.paste();
-	}
-
-
-	@Override
-	public String getName() {
-		return "Paste";
+		editorEngine.printData();
 	}
 	
-}
+	@Override
+	public String getName() {
+		return "Print data";
+	}
 
+}

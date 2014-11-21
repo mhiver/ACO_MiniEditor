@@ -57,6 +57,12 @@ public class EnterText implements Command
 		text = uI.getText();
 		editorEngine.enterText(text);
 	}
+
+
+	@Override
+	public String getName() {
+		return "Enter text";
+	}
 	
 }
 

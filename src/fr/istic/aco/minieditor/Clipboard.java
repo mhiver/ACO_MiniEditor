@@ -16,8 +16,6 @@ public class Clipboard
 	 * @ordered
 	 */
 	
-	private EditorEngineImpl editorEngineImpl;
-	
 	private String text;
 	
 		
@@ -25,8 +23,7 @@ public class Clipboard
 	 * @param editorEngineImpl
 	 * @param text
 	 */
-	public Clipboard(EditorEngineImpl editorEngineImpl) {
-		this.editorEngineImpl = editorEngineImpl;
+	public Clipboard() {
 		this.text = "";
 	}
 

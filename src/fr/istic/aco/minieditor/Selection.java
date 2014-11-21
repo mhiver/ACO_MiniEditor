@@ -15,8 +15,6 @@ public class Selection
 	 * @generated
 	 * @ordered
 	 */
-	
-	private EditorEngineImpl editorEngineImpl;
 
 	private int start;
 	private int end;
@@ -24,8 +22,7 @@ public class Selection
 	/**
 	 * @param editorEngineImpl
 	 */
-	public Selection(EditorEngineImpl editorEngineImpl) {
-		this.editorEngineImpl = editorEngineImpl;
+	public Selection() {
 		this.start = 0;
 		setLength(0);
 	}
@@ -48,7 +45,7 @@ public class Selection
 	
 	// FIXME: -1 ou pas ?
 	public void setLength(int l) {
-		end = start + l - 1;
+		end = start + l;
 	}
 
 }

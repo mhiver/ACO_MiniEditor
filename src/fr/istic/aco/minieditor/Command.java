@@ -16,8 +16,8 @@ public  interface Command
 	 * @ordered
 	 */
 	
-	public void execute() ;
+	public void execute();
 	
-	
+	public String getName();
 }
 

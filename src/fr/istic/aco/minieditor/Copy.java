@@ -18,23 +18,12 @@ public class Copy implements Command
 	
 	private EditorEngine editorEngine;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	// private UI uI;
-	
 	
 	/**
 	 * @param editorEngine
-	 * @param uI
 	 */
 	public Copy(EditorEngine editorEngine) {
 		this.editorEngine = editorEngine;
-		// this.uI = uI;
 	}
 
 	/**
@@ -46,6 +35,12 @@ public class Copy implements Command
 	
 	public void execute() {
 		editorEngine.copy();
+	}
+
+
+	@Override
+	public String getName() {
+		return "Copy";
 	}
 	
 }

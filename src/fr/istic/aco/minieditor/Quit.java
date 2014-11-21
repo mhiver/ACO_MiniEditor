@@ -7,8 +7,8 @@ package fr.istic.aco.minieditor;
  * @generated
  */
 
-public class Paste implements Command
-{
+public class Quit implements Command
+{	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -16,13 +16,14 @@ public class Paste implements Command
 	 * @ordered
 	 */
 	
-	private EditorEngine editorEngine;
+	private UI uI;
+	
 	
 	/**
-	 * @param editorEngine
+	 * @param uI
 	 */
-	public Paste(EditorEngine editorEngine) {
-		this.editorEngine = editorEngine;
+	public Quit(UI uI) {
+		this.uI = uI;
 	}
 
 	/**
@@ -33,13 +34,12 @@ public class Paste implements Command
 	 */
 	
 	public void execute() {
-		editorEngine.paste();
+		uI.stopLoop();
 	}
-
-
+	
 	@Override
 	public String getName() {
-		return "Paste";
+		return "Quit";
 	}
 	
 }

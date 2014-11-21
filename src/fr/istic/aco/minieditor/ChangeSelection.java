@@ -45,7 +45,6 @@ public class ChangeSelection implements Command
 	
 	private UI uI;
 	
-	
 	/**
 	 * @param start
 	 * @param end
@@ -68,7 +67,14 @@ public class ChangeSelection implements Command
 	public void execute() {
 		start = uI.getStart();
 		end = uI.getEnd();
+		
 		editorEngine.changeSelection(start, end);
+	}
+
+
+	@Override
+	public String getName() {
+		return "Change selection";
 	}
 	
 }

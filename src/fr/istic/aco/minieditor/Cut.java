@@ -19,21 +19,10 @@ public class Cut implements Command
 	private EditorEngine editorEngine;
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	// private UI uI;
-	
-	/**
 	 * @param editorEngine
-	 * @param uI
 	 */
 	public Cut(EditorEngine editorEngine) {
 		this.editorEngine = editorEngine;
-		// this.uI = uI;
 	}
 
 	/**
@@ -45,6 +34,12 @@ public class Cut implements Command
 	
 	public void execute() {
 		editorEngine.cut();
+	}
+
+
+	@Override
+	public String getName() {
+		return "Cut";
 	}
 	
 }

@@ -55,6 +55,15 @@ public  interface EditorEngine
 	
 	public void paste() ;
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public void printData();
+	
 	
 }
 
