@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -18,9 +19,8 @@ import java.util.TreeMap;
 public class UIImpl implements UI {
 	private Map<String, Command> commands = new TreeMap<String, Command>();
 	private boolean stopLoop = false;
-	@SuppressWarnings("unused")
-	private InputStream inputStream;
 	private BufferedReader bufferedReader;
+	private PrintStream printStream;
 	
 	private int readUserNumber() {
 		String s = "";
@@ -56,7 +56,7 @@ public class UIImpl implements UI {
 	 */
 	@Override
 	public int getEnd() {
-		System.out.print("Selection end: ");
+		printStream.print("Selection end: ");
 		return readUserNumber();
 	}
 
@@ -65,7 +65,7 @@ public class UIImpl implements UI {
 	 */
 	@Override
 	public int getStart() {
-		System.out.print("Selection start: ");
+		printStream.print("Selection start: ");
 		return readUserNumber();
 	}
 
@@ -75,7 +75,7 @@ public class UIImpl implements UI {
 	@Override
 	public String getText() {
 		String s = "";
-		System.out.print("Text: ");
+		printStream.print("Text: ");
 		try {
 			s = readUserInput();
 		} catch (IOException e) {
@@ -89,7 +89,7 @@ public class UIImpl implements UI {
 	public void runInvokerLoop() {
 		while (!stopLoop) {
 			String userInput = null;
-			System.out.println("Command: " + createCommandList());
+			printStream.println("Command: " + createCommandList());
 			try {
 				userInput = readUserInput();
 			} catch (IOException e) {
@@ -135,7 +135,14 @@ public class UIImpl implements UI {
 		if(inputStream == null) {
 			throw new IllegalArgumentException("null inputStream");
 		}
-		this.inputStream = inputStream;
 		this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+	}
+
+	@Override
+	public void setPrintStream(PrintStream printStream) {
+		if(printStream == null) {
+			throw new IllegalArgumentException("null printStream");
+		}
+		this.printStream = new PrintStream(printStream, true);
 	}
 }

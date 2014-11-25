@@ -36,6 +36,7 @@ public class AppEditor
 		editorEngine = new EditorEngineImpl();
 		uI = new UIImpl();
 		uI.setReadStream(System.in);
+		uI.setPrintStream(System.out);
 		configureCommands();
 		uI.runInvokerLoop();
 		

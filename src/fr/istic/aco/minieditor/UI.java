@@ -1,6 +1,7 @@
 package fr.istic.aco.minieditor;
 
 import java.io.InputStream;
+import java.io.PrintStream;
 
 
 
@@ -50,12 +51,20 @@ public  interface UI
 	public void stopLoop();
 	
 	/**
-	* Sets the read stream that be be used by runInvokerLoop
+	* Sets the read stream that will be used by runInvokerLoop
 	*
 	* @param inputStream the read stream
 	* @throws IllegalArgumentException if inputStream is null
 	*/
 	public void setReadStream(InputStream inputStream);
+	
+	/**
+	* Sets the print stream that will be used to display output and messages
+	*
+	* @param printStream the read stream
+	* @throws IllegalArgumentException if printStream is null
+	*/
+	public void setPrintStream(PrintStream printStream);
 	
 	/**
 	* Registers a new keyword/command pair
