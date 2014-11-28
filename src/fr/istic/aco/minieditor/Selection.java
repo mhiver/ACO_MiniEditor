@@ -13,6 +13,11 @@ public class Selection
 	/**
 	 * attribut start représente le curseur début de la sélection
 	 * attribut end représente le curseur début de la sélection
+	 * 
+	 * start > = 0
+	 * end > = 0
+	 * 
+	 * end >= start
 	 */
 
 	private int start;
@@ -50,7 +55,7 @@ public class Selection
 
 	/**
 	 * modifie attribut end
-	 * @param e >= 0 la nouvelle valeur de end
+	 * @param e >= 0 la nouvelle valeur de end telle que e >= start
 	 */
 	
 	public void setEnd(int e) {
