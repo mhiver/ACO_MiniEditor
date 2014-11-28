@@ -2,23 +2,25 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * commande concrète qui implémente l'interface Command et joue le rôle
+ * de commande concrete Paste
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
 
 public class Paste implements Command
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	/* 
+	 * editorEngine joue le rôle de receveur dans le patron de conception Command
 	 */
 	
 	private EditorEngine editorEngine;
 	
+	
 	/**
+	 * editorEngine doit être non nul
+	 * 
 	 * @param editorEngine
 	 */
 	public Paste(EditorEngine editorEngine) {
@@ -26,16 +28,17 @@ public class Paste implements Command
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * méthode qui va remplacer la selection courante par le contenu du clipboard courant
 	 */
-	
+
+	@Override
 	public void execute() {
 		editorEngine.paste();
 	}
 
+	/**
+	 * retourne "Paste"
+	 */
 
 	@Override
 	public String getName() {

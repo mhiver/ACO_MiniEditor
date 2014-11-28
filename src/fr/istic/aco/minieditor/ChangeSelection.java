@@ -2,52 +2,48 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * commande concrète qui implémente l'interface Command et joue le rôle
+ * de commande concrete Change Selection
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
 
 public class ChangeSelection implements Command
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	/*
+	 * attribut qui servira à definir l'une des borne de la sélection
+	 * 
+	 * start >= 0
 	 */
 	
 	private int start;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+
+	/*
+	 * attribut qui servira à definir l'une des borne de la sélection
+	 * 
+	 * end >= 0
 	 */
 	
 	private int end;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	/* 
+	 * editorEngine joue le rôle de receveur dans le patron de conception Command
 	 */
 	
 	private EditorEngine editorEngine;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	/*
+	 * UI joue le rôle de d'invoqueur dans le patron de conception Command
 	 */
 	
 	private UI uI;
 	
 	/**
-	 * @param start
-	 * @param end
+	 * editorEngine doit être non nul
+	 * uI doit être non nul
+	 * 
 	 * @param editorEngine
 	 * @param uI
 	 */
@@ -58,12 +54,14 @@ public class ChangeSelection implements Command
 
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * va mettre à jour ses attributs start et end grâce à l'invoker uI
+	 * 
+	 * va changer la sélection courante grâce à start et end mis à jour
+	 * 
+	 * 
 	 */
-	
+
+	@Override	
 	public void execute() {
 		start = uI.getStart();
 		end = uI.getEnd();
@@ -72,6 +70,9 @@ public class ChangeSelection implements Command
 	}
 
 
+	/**
+	 * retourne "Change selection"
+	 */
 	@Override
 	public String getName() {
 		return "Change selection";

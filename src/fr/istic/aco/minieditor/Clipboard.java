@@ -2,35 +2,41 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Classe qui représente l'état courant de du clipboard de notre editeur
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
 
 public class Clipboard
 {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * L'attribut text représente le string contenu dans le clipboard
 	 */
 	
 	private String text;
 	
-		
 	/**
-	 * @param editorEngineImpl
-	 * @param text
+	 * initialise attribut text à vide
 	 */
 	public Clipboard() {
 		this.text = "";
 	}
 
+
+	/**
+	 * modifie attribut text
+	 * @param s un String la nouvelle valeur de text
+	 */
 	public void setText(String s) {
 		text = s;
 	}
-	
+
+
+	/**
+	 * Retourne attribut start
+	 * @return start >= 0
+	 */
 	public String getText() {
 		return text;
 	}
