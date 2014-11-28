@@ -16,6 +16,8 @@ import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
 
+import fr.istic.aco.minieditor.Command;
+import fr.istic.aco.minieditor.Quit;
 import fr.istic.aco.minieditor.UIImpl;
 
 /**
@@ -46,7 +48,6 @@ public class UIImplTest {
 			@Override
 			public void write(int b) throws IOException {}
 		};
-		uI.setPrintStream(new PrintStream(os));
 		
 		/*
 		EditorEngine editorEngine = new EditorEngineImpl();
@@ -65,6 +66,7 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testGetEnd() {
+		uI.setPrintStream(new PrintStream(os));
 		String inputs[] = {"5", "0", "-5", "", "toto"};
 		
 		InputStream is = new ByteArrayInputStream(inputArrayToString(inputs).getBytes());
@@ -81,6 +83,7 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testGetStart() {
+		uI.setPrintStream(new PrintStream(os));
 		String inputs[] = {"5", "0", "-5", "", "toto"};
 		
 		InputStream is = new ByteArrayInputStream(inputArrayToString(inputs).getBytes());
@@ -97,7 +100,8 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testGetText() {
-		String inputs[] = {"bla", "", "42", "abc def ghi", "1 2 3 4"};
+		uI.setPrintStream(new PrintStream(os));
+		String inputs[] = {"bla", "", "42", "Abc Def Ghi", "1 2 3 4"};
 		Iterator<String> it = Arrays.asList(inputs).iterator();
 		
 		InputStream is = new ByteArrayInputStream(inputArrayToString(inputs).getBytes());
@@ -113,6 +117,7 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testRunInvokerLoop() {
+		uI.setPrintStream(new PrintStream(os));
 		fail("Not yet implemented"); // TODO
 	}
 
@@ -129,7 +134,26 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testAddCommand() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(uI.getCommands().isEmpty());
+		
+		Command cmd1 = new Quit(uI);
+		uI.addCommand("q", cmd1);
+		assertEquals(1, uI.getCommands().size());
+		assertEquals(cmd1, uI.getCommands().get("q"));
+		
+		Command cmd2 = new Command() {
+			@Override
+			public String getName() {
+				return "Test";
+			}
+
+			@Override
+			public void execute() {
+			}
+		};
+		uI.addCommand("test", cmd2);
+		assertEquals(2, uI.getCommands().size());
+		assertEquals(cmd2, uI.getCommands().get("test"));
 	}
 
 	/**
@@ -137,7 +161,24 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testSetReadStream() {
-		fail("Not yet implemented"); // TODO
+		assertNull(uI.getReadStream());
+
+		uI.setReadStream(new InputStream() {
+			@Override
+			public int read() throws IOException {
+				return 0;
+			}
+		});
+		assertNotNull(uI.getReadStream());
+	}
+
+	/**
+	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#setReadStream(java.io.InputStream)}.
+	 */
+	@Test(expected=IllegalArgumentException.class)
+	public final void testSetReadStreamNull() {
+		assertNull(uI.getReadStream());
+		uI.setReadStream(null);
 	}
 
 	/**
@@ -145,7 +186,28 @@ public class UIImplTest {
 	 */
 	@Test
 	public final void testSetPrintStream() {
-		fail("Not yet implemented"); // TODO
+		assertNull(uI.getPrintStream());
+
+		PrintStream ps1 = new PrintStream(os);
+		uI.setPrintStream(ps1);
+		assertEquals(ps1, uI.getPrintStream());
+		
+		PrintStream ps2 = new PrintStream(new OutputStream() {
+			@Override
+			public void write(int b) throws IOException {
+			}
+		});
+		uI.setPrintStream(ps2);
+		assertEquals(ps2, uI.getPrintStream());
+	}
+
+	/**
+	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#setPrintStream(java.io.PrintStream)}.
+	 */
+	@Test(expected=IllegalArgumentException.class)
+	public final void testSetPrintStreamNull() {
+		assertNull(uI.getPrintStream());
+		uI.setPrintStream(null);
 	}
 
 }

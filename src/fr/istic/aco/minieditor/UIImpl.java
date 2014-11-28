@@ -39,6 +39,8 @@ public class UIImpl implements UI {
 	}
 	
 	private String createCommandList() {
+		if (commands.isEmpty())
+			return "(no commands)";
 		StringBuilder sb = new StringBuilder();
 		
 		for (Entry<String, Command> e: commands.entrySet()) {
@@ -130,19 +132,31 @@ public class UIImpl implements UI {
 		commands.put(keyword,cmd);
 	}
 
+	public Map<String, Command> getCommands() {
+		return new TreeMap<String, Command>(commands);
+	}
+
 	@Override
 	public void setReadStream(InputStream inputStream) {
-		if(inputStream == null) {
+		if (inputStream == null) {
 			throw new IllegalArgumentException("null inputStream");
 		}
 		this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 	}
+	
+	public BufferedReader getReadStream() {
+		return bufferedReader;
+	}
 
 	@Override
 	public void setPrintStream(PrintStream printStream) {
-		if(printStream == null) {
+		if (printStream == null) {
 			throw new IllegalArgumentException("null printStream");
 		}
-		this.printStream = new PrintStream(printStream, true);
+		this.printStream = printStream;
+	}
+
+	public PrintStream getPrintStream() {
+		return printStream;
 	}
 }
