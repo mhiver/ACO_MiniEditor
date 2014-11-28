@@ -2,7 +2,7 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * Classe qui représente l'état courant de du clipboard de notre editeur
+ * Classe qui représente l'état courant de du buffer de notre editeur
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.0
@@ -19,6 +19,9 @@ public class Buffer
 	private StringBuffer buffer;
 
 
+	/**
+	 * initialise attribut buffer avec un nouveau StringBuffer vide
+	 */
 	public Buffer() {
 		this.buffer = new StringBuffer();
 	}

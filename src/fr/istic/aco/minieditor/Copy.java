@@ -2,24 +2,26 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * commande concrète qui implémente l'interface Command et joue le rôle
+ * de commande concrete Copy
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
+
 
 public class Copy implements Command
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	/* 
+	 * editorEngine joue le rôle de receveur dans le patron de conception Command
 	 */
 	
 	private EditorEngine editorEngine;
 	
 	
 	/**
+	 * editorEngine doit être non nul
+	 * 
 	 * @param editorEngine
 	 */
 	public Copy(EditorEngine editorEngine) {
@@ -27,17 +29,19 @@ public class Copy implements Command
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 * méthode qui va copier la sélection courante dans le clipboard
 	 */
-	
+
+	@Override
 	public void execute() {
 		editorEngine.copy();
 	}
 
 
+	/**
+	 * retourne "Copy"
+	 */
+	
 	@Override
 	public String getName() {
 		return "Copy";

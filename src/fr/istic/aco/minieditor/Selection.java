@@ -10,19 +10,24 @@ package fr.istic.aco.minieditor;
 
 public class Selection
 {
-	/**
-	 * attribut start représente le curseur début de la sélection
-	 * attribut end représente le curseur début de la sélection
-	 * 
-	 * start > = 0
-	 * end > = 0
-	 * 
-	 * end >= start
-	 */
+
+  /* attribut start représente le curseur début de la sélection
+	 attribut end représente le curseur début de la sélection
+	  
+	 start > = 0
+	 end > = 0
+	 
+	 end >= start*/
+	 
 
 	private int start;
 	private int end;
 
+	
+	/**
+	 * positionne les attributs start et end sur 0
+	 */
+	
 	public Selection() {
 		this.start = 0;
 		setLength(0);

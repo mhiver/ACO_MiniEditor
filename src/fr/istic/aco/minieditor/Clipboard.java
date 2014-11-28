@@ -11,12 +11,14 @@ package fr.istic.aco.minieditor;
 public class Clipboard
 {
 	/**
-	 * L'attribut text représente le string contenue dans le clipboard
+	 * L'attribut text représente le string contenu dans le clipboard
 	 */
 	
 	private String text;
 	
-		
+	/**
+	 * initialise attribut text à vide
+	 */
 	public Clipboard() {
 		this.text = "";
 	}
