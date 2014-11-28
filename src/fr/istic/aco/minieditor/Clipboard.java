@@ -2,9 +2,10 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Classe qui représente l'état courant de la sélection de notre editeur
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
 
 public class Clipboard
