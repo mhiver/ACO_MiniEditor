@@ -4,6 +4,7 @@ package fr.istic.aco.minieditor;
 /**
  * commande concrète qui implémente l'interface Command et joue le rôle
  * de commande concrete Change Selection
+ * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.0
@@ -71,7 +72,7 @@ public class ChangeSelection implements Command
 
 
 	/**
-	 * retourne "Change selection"
+	 * @return "Change selection"
 	 */
 	@Override
 	public String getName() {

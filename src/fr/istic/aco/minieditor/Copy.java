@@ -39,7 +39,7 @@ public class Copy implements Command
 
 
 	/**
-	 * retourne "Copy"
+	 * @return "Copy"
 	 */
 	
 	@Override

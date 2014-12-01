@@ -2,87 +2,68 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Implémentation de l'interface EditorEngine
+ * 
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
 
 public class EditorEngineImpl implements EditorEngine
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	/* Joue le rôle de buffer qui contiendra le texte de l'éditeur */
 	
 	private Buffer buffer;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
+	/* Joue le rôle de presse papier qui contiendra le texte du presse papier */
 	
 	private Clipboard clipboard;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
+	/* Joue le rôle de selection qui le début et la fin de la sélection */
 	
 	private Selection selection;
 	
 	
 	/**
-	 * @return the buffer
+	 * @return le buffer
 	 */
 	public Buffer getBuffer() {
 		return buffer;
 	}
 
 	/**
-	 * @return the clipboard
+	 * @return le clipboard
 	 */
 	public Clipboard getClipboard() {
 		return clipboard;
 	}
 
 	/**
-	 * @return the selection
+	 * @return le selection
 	 */
 	public Selection getSelection() {
 		return selection;
 	}
 
 	/**
-	 * @param buffer
-	 * @param clipboard
-	 * @param selection
-	 * @param enterText
-	 * @param appEditor
-	 * @param changeSelection
-	 * @param cut
-	 * @param paste
-	 * @param copy
+	 * créer des nouveaux objets Buffer, Clipboard et Selection
+	 * 
 	 */
 	public EditorEngineImpl() {
 		this.buffer = new Buffer();
 		this.clipboard = new Clipboard();
 		this.selection = new Selection();
-		/*
-		this.appEditor = appEditor;
-		this.enterText = enterText;
-		this.changeSelection = changeSelection;
-		this.cut = cut;
-		this.paste = paste;
-		this.copy = copy;
-		*/
 	}
 
+	/**
+	 * Remplace le texte défini par la sélection dans le buffer par text
+	 * 
+	 * Modifie ensuite la sélection pour la positionnée à la fin du texte entré
+	 * 
+	 * @param String text
+	 */
 	private void setSelectionText(String text) {
 		int start = selection.getStart();
 		int end = selection.getEnd();
@@ -92,20 +73,24 @@ public class EditorEngineImpl implements EditorEngine
 		selection.setStart(newPosition);
 		selection.setEnd(newPosition);	
 	}
-	
+
+	/**
+	 * Retourne le texte défini par la sélection dans le buffer
+	 * 
+	 * @return String text
+	 */
 	private String getSelectionText() {
 		int start = selection.getStart();
 		int end = selection.getEnd();
 		return buffer.getContent(start, end);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getStart()
 	 */
-	
+	@Override
 	public void changeSelection(int start, int end) {
 		int length = buffer.getLength();
 
@@ -130,50 +115,45 @@ public class EditorEngineImpl implements EditorEngine
 		selection.setEnd(end);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getStart()
 	 */
-	
+	@Override
 	public void copy() {
 		String text = getSelectionText();
 		
 		if (!text.equals(""))
 			clipboard.setText(text);
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getStart()
 	 */
-	
+	@Override
 	public void enterText(String text) {
 		setSelectionText(text);
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getStart()
 	 */
-	
+	@Override
 	public void paste() {
 		String text = clipboard.getText();	
 		setSelectionText(text);
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getStart()
 	 */
-	
+	@Override
 	public void cut() {
 		String text = getSelectionText();
 		
@@ -182,7 +162,12 @@ public class EditorEngineImpl implements EditorEngine
 			setSelectionText("");
 		}
 	}
-	
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getStart()
+	 */
+	@Override
 	public void printData() {
 		int start = selection.getStart();
 		int end = selection.getEnd();

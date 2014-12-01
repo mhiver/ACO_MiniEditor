@@ -1,6 +1,3 @@
-/**
- * 
- */
 package fr.istic.aco.minieditor;
 
 import java.io.BufferedReader;
@@ -13,14 +10,34 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 /**
- * @author 12001247
- *
+ * Classe qui implémente l'interface UI
+ * 
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  */
+
 public class UIImpl implements UI {
+	
+	/* ensemble des commandes visibles par l'uI*/
 	private Map<String, Command> commands = new TreeMap<String, Command>();
+
+	/* Sert à stopper la boucle de l'uI */
 	private boolean stopLoop = false;
+
+	/* Entrée utilisée par l'utilisateur */
 	private BufferedReader bufferedReader;
+
+	/* Sert à afficher les messages pour l'utilisateur */
 	private PrintStream printStream;
+	
+	/**
+	 * retourne la valeur entrer par l'utilisateur à travers l'uI dans bufferedReader
+	 * 
+	 * si valeur entrée par l'utilisateur est pas un entier, retourne -1
+	 * 
+	 * @return n > -2
+	 */
 	
 	private int readUserNumber() {
 		String s = "";
@@ -38,6 +55,11 @@ public class UIImpl implements UI {
 		return n;
 	}
 	
+	/**
+	 * sert à l'affichage dans la sortie des commandes et de la touche associée
+	 * 
+	 * @return un String
+	 */
 	private String createCommandList() {
 		StringBuilder sb = new StringBuilder();
 		
@@ -85,6 +107,10 @@ public class UIImpl implements UI {
 		return s;
 	}
 
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getText()
+	 */
 	@Override
 	public void runInvokerLoop() {
 		while (!stopLoop) {
@@ -106,6 +132,10 @@ public class UIImpl implements UI {
 		}
 	}
 
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getText()
+	 */
 	@Override
 	public void stopLoop() {
 		stopLoop = true;
@@ -114,13 +144,9 @@ public class UIImpl implements UI {
 	private String readUserInput() throws IOException {
 		return bufferedReader.readLine();
 	}
-
-	/**
-	 * Registers a new keyword/command pair
-	 *
-	 * @param keyword a non-null String
-	 * @param cmd     a non-null Command reference
-	 * @throws java.lang.IllegalArgumentException for null parameters
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getText()
 	 */
 	@Override
 	public void addCommand(String keyword, Command cmd) {
@@ -130,6 +156,10 @@ public class UIImpl implements UI {
 		commands.put(keyword,cmd);
 	}
 
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getText()
+	 */
 	@Override
 	public void setReadStream(InputStream inputStream) {
 		if(inputStream == null) {
@@ -138,6 +168,10 @@ public class UIImpl implements UI {
 		this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 	}
 
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.UI#getText()
+	 */
 	@Override
 	public void setPrintStream(PrintStream printStream) {
 		if(printStream == null) {

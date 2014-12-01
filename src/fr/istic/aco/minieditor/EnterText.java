@@ -60,7 +60,7 @@ public class EnterText implements Command
 
 
 	/**
-	 * retourne "Enter text"
+	 * @return "Enter text"
 	 */
 	@Override
 	public String getName() {

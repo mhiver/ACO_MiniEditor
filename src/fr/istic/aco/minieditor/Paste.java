@@ -37,7 +37,8 @@ public class Paste implements Command
 	}
 
 	/**
-	 * retourne "Paste"
+	 * 
+	 * @return "Paste"
 	 */
 
 	@Override

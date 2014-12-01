@@ -39,7 +39,7 @@ public class Cut implements Command
 
 
 	/**
-	 * retourne "Cut"
+	 * @return "Cut"
 	 */
 	@Override
 	public String getName() {
