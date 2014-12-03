@@ -62,6 +62,7 @@ public class CopyRecordable extends CommandRecordable implements Recordable {
 	 */
 	@Override
 	public void execute() {
+		
 		editorEngine.copy();
 	}
 
