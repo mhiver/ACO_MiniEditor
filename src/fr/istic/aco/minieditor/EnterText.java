@@ -43,7 +43,7 @@ public class EnterText implements Command
 		this.uI = uI;
 	}
 
-	/**
+	/*
 	 * va mettre à jour son attribut text grâce à l'invoker uI
 	 * 
 	 * va remplacer la sélection courante par text mis à jour puis va positionner
@@ -51,7 +51,10 @@ public class EnterText implements Command
 	 * sera nulle
 	 * 
 	 */
-
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override
 	public void execute() {
 		text = uI.getText();
@@ -59,8 +62,12 @@ public class EnterText implements Command
 	}
 
 
-	/**
+	/*
 	 * @return "Enter text"
+	 */
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
 	public String getName() {

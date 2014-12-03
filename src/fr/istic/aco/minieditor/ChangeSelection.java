@@ -54,7 +54,7 @@ public class ChangeSelection implements Command
 	}
 
 
-	/**
+	/*
 	 * va mettre à jour ses attributs start et end grâce à l'invoker uI
 	 * 
 	 * va changer la sélection courante grâce à start et end mis à jour
@@ -62,6 +62,9 @@ public class ChangeSelection implements Command
 	 * 
 	 */
 
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override	
 	public void execute() {
 		start = uI.getStart();
@@ -71,8 +74,12 @@ public class ChangeSelection implements Command
 	}
 
 
-	/**
+	/*
 	 * @return "Change selection"
+	 */
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
 	public String getName() {

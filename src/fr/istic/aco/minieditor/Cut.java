@@ -27,19 +27,26 @@ public class Cut implements Command
 		this.editorEngine = editorEngine;
 	}
 
-	/**
+	/*
 	 * méthode qui va copier la sélection courante dans le clipboard puis 
 	 * remplacer la sélection par ""
 	 */
-
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override
 	public void execute() {
 		editorEngine.cut();
 	}
 
 
-	/**
+	/*
 	 * @return "Cut"
+	 */
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
 	public String getName() {

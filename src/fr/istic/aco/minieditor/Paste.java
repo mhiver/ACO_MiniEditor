@@ -27,20 +27,26 @@ public class Paste implements Command
 		this.editorEngine = editorEngine;
 	}
 
-	/**
+	/*
 	 * méthode qui va remplacer la selection courante par le contenu du clipboard courant
 	 */
 
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override
 	public void execute() {
 		editorEngine.paste();
 	}
 
-	/**
+	/*
 	 * 
 	 * @return "Paste"
 	 */
 
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
+	 */
 	@Override
 	public String getName() {
 		return "Paste";

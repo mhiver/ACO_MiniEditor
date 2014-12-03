@@ -28,20 +28,26 @@ public class Copy implements Command
 		this.editorEngine = editorEngine;
 	}
 
-	/**
+	/*
 	 * méthode qui va copier la sélection courante dans le clipboard
 	 */
-
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override
 	public void execute() {
 		editorEngine.copy();
 	}
 
 
-	/**
+	/*
 	 * @return "Copy"
 	 */
-	
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
+	 */
 	@Override
 	public String getName() {
 		return "Copy";

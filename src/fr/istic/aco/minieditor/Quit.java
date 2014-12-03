@@ -28,19 +28,26 @@ public class Quit implements Command
 		this.uI = uI;
 	}
 
-	/**
+	/*
 	 * va stoper la boucle de l'invoker, ici l'uI
 	 * 
 	 */
-
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override
 	public void execute() {
 		uI.stopLoop();
 	}
 
 
-	/**
+	/*
 	 * @return "Quit"
+	 */
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
 	public String getName() {

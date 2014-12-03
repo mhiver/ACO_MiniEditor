@@ -3,7 +3,7 @@ package fr.istic.aco.minieditor;
 
 
 /**
- * interface obligatoire pour le patron de conception Command qui joue le rôle Command
+ * interface pour le patron de conception Command qui joue le rôle Command
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.0
@@ -12,7 +12,7 @@ package fr.istic.aco.minieditor;
 public  interface Command 
 {
 	/**
-	 * méthode obligatoire du patron de conception Command
+	 * méthode obligatoire du patron de conception Command qui execute l'action associée à la commande
 	 */
 	
 	public void execute();

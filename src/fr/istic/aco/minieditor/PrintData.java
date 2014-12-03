@@ -26,17 +26,24 @@ public class PrintData implements Command {
 		this.editorEngine = editorEngine;
 	}
 
-	/**
+	/*
 	 * va afficher l'etat courant des donnees de l'editeur de texte
 	 */
-
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#execute()
+	 */
 	@Override	
 	public void execute() {
 		editorEngine.printData();
 	}
 
-	/**
+	/*
 	 * @return "Print data"
+	 */
+	
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
 	public String getName() {
