@@ -169,6 +169,7 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	@Override
 	public void printData() {
+		
 		int start = selection.getStart();
 		int end = selection.getEnd();
 		StringBuffer buff = buffer.getBuffer();

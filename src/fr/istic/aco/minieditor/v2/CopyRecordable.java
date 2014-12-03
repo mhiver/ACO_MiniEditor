@@ -19,6 +19,13 @@ public class CopyRecordable extends CommandRecordable implements Recordable {
 	 */
 	
 	private EditorEngine editorEngine;
+
+	/* 
+	 * recorder joue le rôle caretaker
+	 * 
+	 */
+	
+	private Recorder recorder;
 	
 	
 	/**
@@ -26,7 +33,8 @@ public class CopyRecordable extends CommandRecordable implements Recordable {
 	 * 
 	 * @param editorEngine
 	 */
-	public CopyRecordable(EditorEngine editorEngine) {
+	public CopyRecordable(EditorEngine editorEngine, Recorder recorder) {
+		this.recorder = recorder;
 		this.editorEngine = editorEngine;
 	}
 	
@@ -62,8 +70,8 @@ public class CopyRecordable extends CommandRecordable implements Recordable {
 	 */
 	@Override
 	public String getName() {
-		
 		return "Copy";
+		
 	}
 
 }

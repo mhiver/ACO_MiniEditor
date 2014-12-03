@@ -1,35 +1,34 @@
 package fr.istic.aco.minieditor.v2;
 
 import fr.istic.aco.minieditor.Command;
-import fr.istic.aco.minieditor.EditorEngine;
 
 /**
  * commande concrète qui implémente l'interface Command et joue le rôle
- * de commande concrete PrintData
+ * de commande concrete Begin
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
- * @version 1.0
+ * @version 1.1
  */
 public class Begin implements Command {
 
 	/* 
-	 * editorEngine joue le rôle de receveur dans le patron de conception Command
+	 * recorder joue le rôle de receveur dans le patron de conception Command spécifique à l'enregistrement de macro
 	 */
 	
-	private EditorEngine editorEngine;
+	private Recorder recorder;
 	
 	
 	/**
-	 * editorEngine doit être non nul
+	 * recorder doit être non nul
 	 * 
-	 * @param editorEngine
+	 * @param recorder
 	 */
-	public Begin(EditorEngine editorEngine) {
-		this.editorEngine = editorEngine;
+	public Begin(Recorder _recorder) {
+		this.recorder = _recorder;
 	}
 
 	/*
-	 * va afficher l'etat courant des donnees de l'editeur de texte
+	 * va commencer l'enregistrement d'une macro
 	 */
 	
 	/* (non-Javadoc)
@@ -37,11 +36,11 @@ public class Begin implements Command {
 	 */
 	@Override	
 	public void execute() {
-		editorEngine.printData();
+		recorder.begin();
 	}
 
 	/*
-	 * @return "Print data"
+	 * @return "Begin macro
 	 */
 	
 	/* (non-Javadoc)
@@ -49,7 +48,7 @@ public class Begin implements Command {
 	 */
 	@Override
 	public String getName() {
-		return "Print data";
+		return "Replay macro";
 	}
 
 }
