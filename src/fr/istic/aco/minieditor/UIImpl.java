@@ -169,7 +169,7 @@ public class UIImpl implements UI {
 		return new TreeMap<String, Command>(commands);
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#setReadStream(InputStream inputStream)
 	 */
 	@Override
@@ -184,7 +184,7 @@ public class UIImpl implements UI {
 		return bufferedReader;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#setPrintStream(PrintStream printStream)
 	 */
 	@Override
