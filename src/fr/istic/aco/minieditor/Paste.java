@@ -31,7 +31,7 @@ public class Paste implements Command
 	 * méthode qui va remplacer la selection courante par le contenu du clipboard courant
 	 */
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
 	@Override
@@ -44,7 +44,7 @@ public class Paste implements Command
 	 * @return "Paste"
 	 */
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
