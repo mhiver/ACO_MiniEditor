@@ -1,59 +1,40 @@
 package fr.istic.aco.minieditor.v2;
 
+import fr.istic.aco.minieditor.ChangeSelection;
 import fr.istic.aco.minieditor.EditorEngine;
 import fr.istic.aco.minieditor.UI;
 
 /**
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande ChangeSelection
  * 
- * Hérite de la classe CommandRecordable 
+ * Hérite de la classe ChangeSelection car le but de cette classe est spécifiquement d'enregistrer cette commande
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.1
  */
 
-public class ChangeSelectionRecordable extends CommandRecordable implements Recordable {
+public class ChangeSelectionRecordable extends ChangeSelection implements Recordable {
 
-	/*
-	 * attribut qui servira à definir l'une des borne de la sélection
-	 * 
-	 * start >= 0
-	 */
-	
-	private int start;
-	
-
-	/*
-	 * attribut qui servira à definir l'une des borne de la sélection
-	 * 
-	 * end >= 0
-	 */
-	
-	private int end;
-	
 	/* 
-	 * editorEngine joue le rôle de receveur dans le patron de conception Command
+	 * recorder joue le rôle caretaker
+	 * 
 	 */
 	
-	private EditorEngine editorEngine;
-	
-	/*
-	 * UI joue le rôle de d'invoqueur dans le patron de conception Command
-	 */
-	
-	private UI uI;
+	private Recorder recorder;
 	
 	/**
 	 * editorEngine doit être non nul
 	 * uI doit être non nul
+	 * recorder doit être non nul
 	 * 
 	 * @param editorEngine
 	 * @param uI
+	 * @param recorder
 	 */
-	public ChangeSelectionRecordable(EditorEngine editorEngine, UI uI) {
-		this.editorEngine = editorEngine;
-		this.uI = uI;
+	public ChangeSelectionRecordable(EditorEngine editorEngine, UI uI, Recorder recorder) {
+		super(editorEngine,uI);
+		this.recorder = recorder;
 	}
 	
 	/* (non-Javadoc)
@@ -61,8 +42,6 @@ public class ChangeSelectionRecordable extends CommandRecordable implements Reco
 	 */
 	@Override
 	public Memento getMemento() {		
-		start = uI.getStart();
-		end = uI.getEnd();
 		
 		Memento m = new MemChangeSelection(start, end);
 		
@@ -86,29 +65,20 @@ public class ChangeSelectionRecordable extends CommandRecordable implements Reco
 	 * 
 	 * va changer la sélection courante grâce à start et end mis à jour
 	 * 
-	 * 
+	 * va sauvegarder la commande pour la macro
 	 */
 
 	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
-	@Override	
-	public void execute() {
-		editorEngine.changeSelection(start, end);
-		
-	}
-
-
-	/*
-	 * @return "Change selection"
-	 */
 	
-	/* (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.Command#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Change selection";
+	public void execute() {
+		if (recorder.getRecording() == true) {
+			super.execute();
+			recorder.record(this);
+		} else {
+			super.execute();
+		}
 	}
 
 }

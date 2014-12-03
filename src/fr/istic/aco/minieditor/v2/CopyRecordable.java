@@ -1,24 +1,19 @@
 package fr.istic.aco.minieditor.v2;
 
+import fr.istic.aco.minieditor.Copy;
 import fr.istic.aco.minieditor.EditorEngine;
 
 /**
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande Copy
  * 
- * Hérite de la classe CommandRecordable
+ * Hérite de la classe Copy car le but de cette classe est spécifiquement d'enregistrer cette commande
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.1
  */
 
-public class CopyRecordable extends CommandRecordable implements Recordable {
-
-	/* 
-	 * editorEngine joue le rôle de receveur dans le patron de conception Command
-	 */
-	
-	private EditorEngine editorEngine;
+public class CopyRecordable extends Copy implements Recordable {
 
 	/* 
 	 * recorder joue le rôle caretaker
@@ -30,12 +25,15 @@ public class CopyRecordable extends CommandRecordable implements Recordable {
 	
 	/**
 	 * editorEngine doit être non nul
+	 * recorder doit être non nul
+	 * 
 	 * 
 	 * @param editorEngine
+	 * @param recorder
 	 */
 	public CopyRecordable(EditorEngine editorEngine, Recorder recorder) {
+		super(editorEngine);
 		this.recorder = recorder;
-		this.editorEngine = editorEngine;
 	}
 	
 	/* (non-Javadoc)
@@ -57,22 +55,19 @@ public class CopyRecordable extends CommandRecordable implements Recordable {
 		
 	}
 
+	/* va sauvegarder la commande pour la macro */
+	
 	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
-	@Override
+	
 	public void execute() {
-		
-		editorEngine.copy();
-	}
-
-	/* (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.Command#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Copy";
-		
+		if (recorder.getRecording() == true) {
+			super.execute();
+			recorder.record(this);
+		} else {
+			super.execute();
+		}
 	}
 
 }

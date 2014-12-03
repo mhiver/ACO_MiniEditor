@@ -1,35 +1,40 @@
 package fr.istic.aco.minieditor.v2;
 
 import fr.istic.aco.minieditor.EditorEngine;
+import fr.istic.aco.minieditor.Paste;
 
 /**
  * 
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande Paste
  * 
  * 
- * Hérite de la classe CommandRecordable
+ * Hérite de la classe Paste car le but de cette classe est spécifiquement d'enregistrer cette commande
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.1
  */
 
-public class PasteRecordable extends CommandRecordable implements Recordable {
+public class PasteRecordable extends Paste implements Recordable {
 
 	/* 
-	 * editorEngine joue le rôle de receveur dans le patron de conception Command
+	 * recorder joue le rôle caretaker
+	 * 
 	 */
 	
-	private EditorEngine editorEngine;
+	private Recorder recorder;
 	
 	
 	/**
 	 * editorEngine doit être non nul
+	 * recorder doit être non nul
 	 * 
 	 * @param editorEngine
+	 * @param recorder
 	 */
-	public PasteRecordable(EditorEngine editorEngine) {
-		this.editorEngine = editorEngine;
+	public PasteRecordable(EditorEngine editorEngine, Recorder recorder) {
+		super(editorEngine);
+		this.recorder = recorder;
 	}
 	
 	/* (non-Javadoc)
@@ -51,27 +56,20 @@ public class PasteRecordable extends CommandRecordable implements Recordable {
 
 	/*
 	 * méthode qui va remplacer la selection courante par le contenu du clipboard courant
+	 * va sauvegarder la commande pour la macro 
 	 */
 
 	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
-	@Override
+	
 	public void execute() {
-		editorEngine.paste();
-	}
-
-	/*
-	 * 
-	 * @return "Paste"
-	 */
-
-	/* (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.Command#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Paste";
+		if (recorder.getRecording() == true) {
+			super.execute();
+			recorder.record(this);
+		} else {
+			super.execute();
+		}
 	}
 
 }

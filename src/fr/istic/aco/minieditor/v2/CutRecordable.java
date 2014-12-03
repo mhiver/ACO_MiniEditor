@@ -1,33 +1,38 @@
 package fr.istic.aco.minieditor.v2;
 
+import fr.istic.aco.minieditor.Cut;
 import fr.istic.aco.minieditor.EditorEngine;
 
 /**
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande Cut
  * 
- * Hérite de la classe CommandRecordable
+ * Hérite de la classe Cut car le but de cette classe est spécifiquement d'enregistrer cette commande
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.1
  */
 
-public class CutRecordable extends CommandRecordable implements Recordable {
-	
+public class CutRecordable extends Cut implements Recordable {
+
 	/* 
-	 * editorEngine joue le rôle de receveur dans le patron de conception Command
+	 * recorder joue le rôle caretaker
+	 * 
 	 */
 	
-	private EditorEngine editorEngine;
+	private Recorder recorder;
 	
 	
 	/**
 	 * editorEngine doit être non nul
+	 * recorder doit être non nul
 	 * 
 	 * @param editorEngine
+	 * @param recorder
 	 */
-	public CutRecordable(EditorEngine editorEngine) {
-		this.editorEngine = editorEngine;
+	public CutRecordable(EditorEngine editorEngine, Recorder recorder) {
+		super(editorEngine);
+		this.recorder = recorder;
 	}
 	
 	/* (non-Javadoc)
@@ -49,20 +54,19 @@ public class CutRecordable extends CommandRecordable implements Recordable {
 		
 	}
 
+	/* va sauvegarder la commande pour la macro */
+	
 	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
-	@Override
-	public void execute() {
-		editorEngine.cut();
-	}
 	
-	/* (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.Command#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Cut";
+	public void execute() {
+		if (recorder.getRecording() == true) {
+			super.execute();
+			recorder.record(this);
+		} else {
+			super.execute();
+		}
 	}
 	
 }

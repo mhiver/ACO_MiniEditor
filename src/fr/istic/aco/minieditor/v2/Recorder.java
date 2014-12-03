@@ -15,7 +15,7 @@ package fr.istic.aco.minieditor.v2;
 public interface Recorder {
 	
 	/**
-	 * méthode obligatoire du patron de conception memento qui va enregistrer
+	 * méthode obligatoire du patron de conception memento qui va ajouter une commande à la macro à enregistrer
 	 * 
 	 * @param recordable cmd
 	 */
@@ -23,21 +23,28 @@ public interface Recorder {
 	public void record(Recordable cmd);	
 	
 	/**
-	 * Commence l'enregistrement de la macro 
+	 * Commence l'enregistrement de la macro (role receveur du patron de conception Command)
 	 */
 	
 	public void begin();
 	
 	/**
-	 * Arrête l'enregistrement de la macro 
+	 * Arrête l'enregistrement de la macro (role receveur du patron de conception Command)
 	 */
 	
 	public void end();
 	
 	/**
-	 * Rejoue la macro enregistrée
+	 * Rejoue la macro enregistrée, pas autoriser pendant un enregistrement de macro (role receveur du patron de conception Command)
 	 */
 	
 	public void replay();
+	
+	/**
+	 * indique si l'enregistreur est en train d'enregistrer
+	 * 
+	 * @return l'attribut recording
+	 */
+	public boolean getRecording();
 	
 }

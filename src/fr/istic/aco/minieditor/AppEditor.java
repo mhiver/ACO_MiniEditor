@@ -56,7 +56,7 @@ public class AppEditor
 	 * initialise les commandes standards de l'éditeur de texte
 	 */
 	private void configureCommands() {
-		uI.addCommand("c", new Copy(editorEngine));
+		uI.addCommand("C", new Copy(editorEngine));
 		uI.addCommand("x", new Cut(editorEngine));
 		uI.addCommand("v", new Paste(editorEngine));
 		uI.addCommand("i", new EnterText(editorEngine, uI));

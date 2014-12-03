@@ -16,7 +16,7 @@ public class EnterText implements Command
 	 * 
 	 */
 	
-	private String text;
+	protected String text;
 
 	
 	/* 

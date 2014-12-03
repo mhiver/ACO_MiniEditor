@@ -1,50 +1,40 @@
 package fr.istic.aco.minieditor.v2;
 
 import fr.istic.aco.minieditor.EditorEngine;
+import fr.istic.aco.minieditor.EnterText;
 import fr.istic.aco.minieditor.UI;
 
 /**
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande EnterTexte
  * 
- * Hérite de la classe CommandRecordable 
+ * Hérite de la classe EnterText car le but de cette classe est spécifiquement d'enregistrer cette commande
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.1
  */
 
-public class EnterTextRecordable extends CommandRecordable implements Recordable {
+public class EnterTextRecordable extends EnterText implements Recordable {
 
-	/*
-	 * attribut qui servira à definir le nouveau String pour remplacer la selection courante
+	/* 
+	 * recorder joue le rôle caretaker
 	 * 
 	 */
 	
-	private String text;
-
-	
-	/* 
-	 * editorEngine joue le rôle de receveur dans le patron de conception Command
-	 */
-	
-	private EditorEngine editorEngine;
-	
-	/*
-	 * UI joue le rôle de d'invoqueur dans le patron de conception Command
-	 */
-	
-	private UI uI;
+	private Recorder recorder;
 	
 	/**
 	 * editorEngine doit être non nul
 	 * uI doit être non nul
+	 * recorder doit être non nul
 	 * 
 	 * @param editorEngine
 	 * @param uI
+	 * @param recorder
 	 */
-	public EnterTextRecordable(EditorEngine editorEngine, UI uI) {
-		this.editorEngine = editorEngine;
-		this.uI = uI;
+	public EnterTextRecordable(EditorEngine editorEngine, UI uI, Recorder recorder) {
+		super(editorEngine,uI);
+		this.recorder = recorder;
 	}
 	
 	/* (non-Javadoc)
@@ -52,7 +42,6 @@ public class EnterTextRecordable extends CommandRecordable implements Recordable
 	 */
 	@Override
 	public Memento getMemento() {
-		text = uI.getText();
 		
 		Memento m = new MemEnterText(text);
 		
@@ -68,21 +57,19 @@ public class EnterTextRecordable extends CommandRecordable implements Recordable
 		
 	}
 
+	/* va sauvegarder la commande pour la macro */
+	
 	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
-	@Override
+	
 	public void execute() {
-		editorEngine.enterText(text);
-		
-	}
-
-	/* (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.Command#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Enter text";
+		if (recorder.getRecording() == true) {
+			super.execute();
+			recorder.record(this);
+		} else {
+			super.execute();
+		}
 	}
 
 }

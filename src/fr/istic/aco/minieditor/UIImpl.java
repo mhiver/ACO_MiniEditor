@@ -17,7 +17,7 @@ import java.util.TreeMap;
  * @version 1.0
  */
 
-public class UIImpl implements UI {
+public class UIImpl extends Thread implements UI {
 	
 	/* ensemble des commandes visibles par l'uI*/
 	private Map<String, Command> commands = new TreeMap<String, Command>();

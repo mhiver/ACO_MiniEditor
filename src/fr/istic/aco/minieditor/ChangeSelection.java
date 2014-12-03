@@ -18,7 +18,7 @@ public class ChangeSelection implements Command
 	 * start >= 0
 	 */
 	
-	private int start;
+	protected int start;
 	
 
 	/*
@@ -27,7 +27,7 @@ public class ChangeSelection implements Command
 	 * end >= 0
 	 */
 	
-	private int end;
+	protected int end;
 	
 	/* 
 	 * editorEngine joue le rôle de receveur dans le patron de conception Command
