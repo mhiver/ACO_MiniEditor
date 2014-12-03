@@ -31,7 +31,7 @@ public class UIImpl implements UI {
 	/* Sert à afficher les messages pour l'utilisateur */
 	private PrintStream printStream;
 	
-	/**
+	/*
 	 * retourne la valeur entrer par l'utilisateur à travers l'uI dans bufferedReader
 	 * 
 	 * si valeur entrée par l'utilisateur est pas un entier, retourne -1
@@ -55,7 +55,7 @@ public class UIImpl implements UI {
 		return n;
 	}
 	
-	/**
+	/*
 	 * sert à l'affichage dans la sortie des commandes et de la touche associée
 	 * 
 	 * @return un String
@@ -75,7 +75,7 @@ public class UIImpl implements UI {
 		return sb.substring(0, sb.length()-2);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#getEnd()
 	 */
 	@Override
@@ -84,7 +84,7 @@ public class UIImpl implements UI {
 		return readUserNumber();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#getStart()
 	 */
 	@Override
@@ -93,7 +93,7 @@ public class UIImpl implements UI {
 		return readUserNumber();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#getText()
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class UIImpl implements UI {
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#runInvokerLoop()
 	 */
 	@Override
@@ -135,7 +135,7 @@ public class UIImpl implements UI {
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#stopLoop()
 	 */
 	@Override
@@ -143,7 +143,7 @@ public class UIImpl implements UI {
 		stopLoop = true;
 	}
 
-	/**
+	/*
 	 * Va lire entrée clavier à travers bufferedReader
 	 * 
 	 * @return String
@@ -154,7 +154,7 @@ public class UIImpl implements UI {
 		return bufferedReader.readLine();
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.UI#addCommand(String keyword, Command cmd)
 	 */
 	@Override
@@ -195,6 +195,11 @@ public class UIImpl implements UI {
 		this.printStream = printStream;
 	}
 	
+	
+	/**
+	 * Retourne l'attribut printStream
+	 * @return PrintStream
+	 */
 	public PrintStream getPrintStream() {
 		return printStream;
 	}

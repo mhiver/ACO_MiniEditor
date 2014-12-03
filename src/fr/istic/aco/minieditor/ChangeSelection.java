@@ -62,7 +62,7 @@ public class ChangeSelection implements Command
 	 * 
 	 */
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
 	@Override	
@@ -78,7 +78,7 @@ public class ChangeSelection implements Command
 	 * @return "Change selection"
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
