@@ -52,7 +52,7 @@ public class EnterText implements Command
 	 * 
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
 	@Override
@@ -66,7 +66,7 @@ public class EnterText implements Command
 	 * @return "Enter text"
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
