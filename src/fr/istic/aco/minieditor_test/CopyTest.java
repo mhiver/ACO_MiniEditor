@@ -1,6 +1,3 @@
-/**
- * 
- */
 package fr.istic.aco.minieditor_test;
 
 import static org.junit.Assert.*;
