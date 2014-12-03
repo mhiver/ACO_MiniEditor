@@ -67,6 +67,8 @@ public class EnterTextRecordable extends EnterText implements Recordable {
 		if (recorder.getRecording() == true) {
 			super.execute();
 			recorder.record(this);
+		} else if (recorder.getReplaying() == true){
+			editorEngine.enterText(text);
 		} else {
 			super.execute();
 		}

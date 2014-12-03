@@ -33,7 +33,7 @@ public class ChangeSelection implements Command
 	 * editorEngine joue le rôle de receveur dans le patron de conception Command
 	 */
 	
-	private EditorEngine editorEngine;
+	protected EditorEngine editorEngine;
 	
 	/*
 	 * UI joue le rôle de d'invoqueur dans le patron de conception Command

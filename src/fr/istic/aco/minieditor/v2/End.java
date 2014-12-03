@@ -36,7 +36,7 @@ public class End implements Command {
 	 */
 	@Override	
 	public void execute() {
-		recorder.begin();
+		recorder.end();
 	}
 
 	/*

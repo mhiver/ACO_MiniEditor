@@ -23,19 +23,24 @@ public interface Recorder {
 	public void record(Recordable cmd);	
 	
 	/**
-	 * Commence l'enregistrement de la macro (role receveur du patron de conception Command)
+	 * Commence l'enregistrement de la macro 
+	 * 
+	 * begin doit être utilisé seulement lorsque aucune macro est en cours de création
 	 */
 	
 	public void begin();
 	
 	/**
-	 * Arrête l'enregistrement de la macro (role receveur du patron de conception Command)
+	 * Arrête l'enregistrement de la macro
+	 * 
+	 * end doit être utilisé seulement lorsqu'une macro est en cours de création
 	 */
 	
 	public void end();
 	
 	/**
-	 * Rejoue la macro enregistrée, pas autoriser pendant un enregistrement de macro (role receveur du patron de conception Command)
+	 * Rejoue la macro enregistrée, 
+	 * pas autoriser pendant un enregistrement de macro 
 	 */
 	
 	public void replay();
@@ -46,5 +51,12 @@ public interface Recorder {
 	 * @return l'attribut recording
 	 */
 	public boolean getRecording();
+	
+	/**
+	 * indique si l'enregistreur est en train de rejouer une macro
+	 * 
+	 * @return l'attribut replaying
+	 */
+	public boolean getReplaying();
 	
 }

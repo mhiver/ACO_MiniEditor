@@ -1,13 +1,9 @@
 package fr.istic.aco.minieditor.v2;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import fr.istic.aco.minieditor.Buffer;
-import fr.istic.aco.minieditor.Clipboard;
 import fr.istic.aco.minieditor.Command;
-import fr.istic.aco.minieditor.Selection;
 
 /**
  * Classe qui implémente l'interface Recorder
@@ -39,6 +35,10 @@ public class RecorderImpl implements Recorder{
 	
 	private boolean recording;
 	
+	/* true si on est en train d'enregistrer une macro */
+	
+	private boolean replaying;
+	
 
 
 	/**
@@ -51,6 +51,7 @@ public class RecorderImpl implements Recorder{
 		this.mementos = new LinkedList<Memento>();
 		this.nextMementos = new LinkedList<Memento>();
 		this.recording = false;
+		this.replaying = false;
 	}
 	
 
@@ -107,17 +108,31 @@ public class RecorderImpl implements Recorder{
 	@Override	
 	public void replay() {
 		
-		if (recording == true) {
-			throw new IllegalArgumentException("Replay when recording");
-		}
+		if (recording == false) {
+		
+		replaying = true;
+		
+		nextMacro = new LinkedList<Recordable>();
+		nextMementos = new LinkedList<Memento>();
 		
 		while (macro.size() + mementos.size() > 0 ) {
 			Memento m = ((LinkedList<Memento>) mementos).pop();
 			Recordable cmd = ((LinkedList<Recordable>) macro).pop();
 			
+			((LinkedList<Memento>) nextMementos).addLast(m);
+			((LinkedList<Recordable>) nextMacro).addLast(cmd);
+			
 			cmd.setMemento(m);
 			((Command) cmd).execute();
-		}		
+		}	
+		
+		replaying = false;
+		
+		macro = new LinkedList<Recordable>(nextMacro);
+		mementos = new LinkedList<Memento>(nextMementos);
+		
+		}
+		
 	}
 
 
@@ -127,6 +142,15 @@ public class RecorderImpl implements Recorder{
 	@Override	
 	public boolean getRecording() {
 		return recording;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v2.Recorder#getRecording()
+	 */
+	@Override	
+	public boolean getReplaying() {
+		return replaying;
 	}
 
 }

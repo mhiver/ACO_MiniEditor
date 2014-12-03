@@ -40,7 +40,7 @@ public class Begin implements Command {
 	}
 
 	/*
-	 * @return "Begin macro
+	 * @return "Begin macro"
 	 */
 	
 	/* (non-Javadoc)
@@ -48,7 +48,7 @@ public class Begin implements Command {
 	 */
 	@Override
 	public String getName() {
-		return "Replay macro";
+		return "Begin macro";
 	}
 
 }

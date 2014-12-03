@@ -1,6 +1,6 @@
 package fr.istic.aco.minieditor;
 
-
+import fr.istic.aco.minieditor.v2.*;;
 /**
  * Classe qui joue le rôle de client dans le patron de conception Command
  * 
@@ -11,11 +11,18 @@ package fr.istic.aco.minieditor;
  * @version 1.0
  */
 
-public class AppEditor
+public class AppEditor_v2
 {
 	/* Objet qui joue le rôle de receveur dans le patron de conception Command*/
 
 	private EditorEngine editorEngine;
+	
+	/* objet qui joue le role de caretaker
+	 * objet qui joue le role de receveur pour les commandes Begin et Replay
+	 * 
+	*/
+	
+	private Recorder recorder;
 
 	/* Objet qui joue le rôle d'invoqueur dans le patron de conception Command
 	 * 
@@ -30,7 +37,7 @@ public class AppEditor
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		AppEditor editor = new AppEditor();
+		AppEditor_v2 editor = new AppEditor_v2();
 		editor.run();
 	}
 	
@@ -42,6 +49,7 @@ public class AppEditor
 	 */
 	private void run() {
 		editorEngine = new EditorEngineImpl();
+		recorder = new RecorderImpl();
 		uI = new UIImpl();
 		uI.setReadStream(System.in);
 		uI.setPrintStream(System.out);
@@ -56,13 +64,17 @@ public class AppEditor
 	 * initialise les commandes standards de l'éditeur de texte
 	 */
 	private void configureCommands() {
-		uI.addCommand("c", new Copy(editorEngine));
-		uI.addCommand("x", new Cut(editorEngine));
-		uI.addCommand("v", new Paste(editorEngine));
-		uI.addCommand("i", new EnterText(editorEngine, uI));
-		uI.addCommand("s", new ChangeSelection(editorEngine, uI));
+		uI.addCommand("c", new CopyRecordable(editorEngine, recorder));
+		uI.addCommand("x", new CutRecordable(editorEngine, recorder));
+		uI.addCommand("v", new PasteRecordable(editorEngine, recorder));
+		uI.addCommand("i", new EnterTextRecordable(editorEngine, uI, recorder));
+		uI.addCommand("s", new ChangeSelectionRecordable(editorEngine, uI, recorder));
 		uI.addCommand("q", new Quit(uI));
 		uI.addCommand("p", new PrintData(editorEngine));
+		
+		uI.addCommand("r", new Replay(recorder));
+		uI.addCommand("b", new Begin(recorder));
+		uI.addCommand("e", new End(recorder));
 	}
 }
 

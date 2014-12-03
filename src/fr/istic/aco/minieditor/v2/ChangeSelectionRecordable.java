@@ -76,6 +76,8 @@ public class ChangeSelectionRecordable extends ChangeSelection implements Record
 		if (recorder.getRecording() == true) {
 			super.execute();
 			recorder.record(this);
+		} else if (recorder.getReplaying() == true){
+			editorEngine.changeSelection(start, end);
 		} else {
 			super.execute();
 		}
