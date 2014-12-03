@@ -87,7 +87,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.EditorEngine#changeSelection(int start, int end)
 	 */
 	@Override
@@ -117,7 +117,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.EditorEngine#copy()
 	 */
 	@Override
@@ -129,7 +129,7 @@ public class EditorEngineImpl implements EditorEngine
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.EditorEngine#enterText(String text)
 	 */
 	@Override
@@ -139,7 +139,7 @@ public class EditorEngineImpl implements EditorEngine
 	
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.EditorEngine#paste()
 	 */
 	@Override
@@ -150,7 +150,7 @@ public class EditorEngineImpl implements EditorEngine
 	
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.EditorEngine#cut()
 	 */
 	@Override
@@ -164,7 +164,7 @@ public class EditorEngineImpl implements EditorEngine
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.EditorEngine#printData()
 	 */
 	@Override

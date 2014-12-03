@@ -33,7 +33,7 @@ public class Quit implements Command
 	 * 
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
 	@Override
@@ -46,7 +46,7 @@ public class Quit implements Command
 	 * @return "Quit"
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override

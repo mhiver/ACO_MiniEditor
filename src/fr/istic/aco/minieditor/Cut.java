@@ -32,7 +32,7 @@ public class Cut implements Command
 	 * remplacer la sélection par ""
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#execute()
 	 */
 	@Override
@@ -45,7 +45,7 @@ public class Cut implements Command
 	 * @return "Cut"
 	 */
 	
-	/* (non-Javadoc)
+	/**
 	 * @see fr.istic.aco.minieditor.Command#getName()
 	 */
 	@Override
