@@ -1,14 +1,14 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.istic.aco.minieditor.Buffer;
+import fr.istic.aco.minieditor.v1.Buffer;
 
 /**
  * @author 12001247
@@ -26,7 +26,7 @@ public class BufferTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Buffer#Buffer()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Buffer#Buffer()}.
 	 */
 	@Test
 	public final void testBuffer() {
@@ -34,7 +34,7 @@ public class BufferTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Buffer#getContent(int, int)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Buffer#getContent(int, int)}.
 	 */
 	@Test
 	public final void testGetContent() {
@@ -47,7 +47,7 @@ public class BufferTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Buffer#setContent(int, int, java.lang.String)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Buffer#setContent(int, int, java.lang.String)}.
 	 */
 	@Test
 	public final void testSetContent() {
@@ -62,7 +62,7 @@ public class BufferTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Buffer#getBuffer()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Buffer#getBuffer()}.
 	 */
 	@Test
 	public final void testGetBuffer() {
@@ -73,7 +73,7 @@ public class BufferTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Buffer#getLength()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Buffer#getLength()}.
 	 */
 	@Test
 	public final void testGetLength() {

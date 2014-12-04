@@ -1,7 +1,7 @@
 package fr.istic.aco.minieditor.v2;
 
-import fr.istic.aco.minieditor.EditorEngine;
-import fr.istic.aco.minieditor.Paste;
+import fr.istic.aco.minieditor.v1.EditorEngine;
+import fr.istic.aco.minieditor.v1.Paste;
 
 /**
  * 

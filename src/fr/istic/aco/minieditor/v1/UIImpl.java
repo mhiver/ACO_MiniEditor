@@ -1,4 +1,4 @@
-package fr.istic.aco.minieditor;
+package fr.istic.aco.minieditor.v1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class UIImpl implements UI {
 	}
 
 	/**
-	 * @see fr.istic.aco.minieditor.UI#getEnd()
+	 * @see fr.istic.aco.minieditor.v1.UI#getEnd()
 	 */
 	@Override
 	public int getEnd() {
@@ -85,7 +85,7 @@ public class UIImpl implements UI {
 	}
 
 	/**
-	 * @see fr.istic.aco.minieditor.UI#getStart()
+	 * @see fr.istic.aco.minieditor.v1.UI#getStart()
 	 */
 	@Override
 	public int getStart() {
@@ -94,7 +94,7 @@ public class UIImpl implements UI {
 	}
 
 	/**
-	 * @see fr.istic.aco.minieditor.UI#getText()
+	 * @see fr.istic.aco.minieditor.v1.UI#getText()
 	 */
 	@Override
 	public String getText() {
@@ -111,7 +111,7 @@ public class UIImpl implements UI {
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.UI#runInvokerLoop()
+	 * @see fr.istic.aco.minieditor.v1.UI#runInvokerLoop()
 	 */
 	@Override
 	public void runInvokerLoop() {
@@ -136,7 +136,7 @@ public class UIImpl implements UI {
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.UI#stopLoop()
+	 * @see fr.istic.aco.minieditor.v1.UI#stopLoop()
 	 */
 	@Override
 	public void stopLoop() {
@@ -155,7 +155,7 @@ public class UIImpl implements UI {
 	}
 	
 	/**
-	 * @see fr.istic.aco.minieditor.UI#addCommand(String keyword, Command cmd)
+	 * @see fr.istic.aco.minieditor.v1.UI#addCommand(String keyword, Command cmd)
 	 */
 	@Override
 	public void addCommand(String keyword, Command cmd) {
@@ -170,7 +170,7 @@ public class UIImpl implements UI {
 	}
 	
 	/**
-	 * @see fr.istic.aco.minieditor.UI#setReadStream(InputStream inputStream)
+	 * @see fr.istic.aco.minieditor.v1.UI#setReadStream(InputStream inputStream)
 	 */
 	@Override
 	public void setReadStream(InputStream inputStream) {
@@ -185,7 +185,7 @@ public class UIImpl implements UI {
 	}
 	
 	/**
-	 * @see fr.istic.aco.minieditor.UI#setPrintStream(PrintStream printStream)
+	 * @see fr.istic.aco.minieditor.v1.UI#setPrintStream(PrintStream printStream)
 	 */
 	@Override
 	public void setPrintStream(PrintStream printStream) {

@@ -1,7 +1,7 @@
 package fr.istic.aco.minieditor.v2;
 
-import fr.istic.aco.minieditor.Cut;
-import fr.istic.aco.minieditor.EditorEngine;
+import fr.istic.aco.minieditor.v1.Cut;
+import fr.istic.aco.minieditor.v1.EditorEngine;
 
 /**
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande Cut

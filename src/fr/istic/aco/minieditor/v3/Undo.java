@@ -1,6 +1,6 @@
 package fr.istic.aco.minieditor.v3;
 
-import fr.istic.aco.minieditor.Command;
+import fr.istic.aco.minieditor.v1.Command;
 
 /**
  * commande concrète qui implémente l'interface Command et joue le rôle

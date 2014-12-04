@@ -1,4 +1,4 @@
-package fr.istic.aco.minieditor;
+package fr.istic.aco.minieditor.v1;
 
 import java.io.InputStream;
 import java.io.PrintStream;

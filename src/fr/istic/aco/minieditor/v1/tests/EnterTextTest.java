@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import fr.istic.aco.minieditor.EditorEngineImpl;
-import fr.istic.aco.minieditor.EnterText;
-import fr.istic.aco.minieditor.UIImpl;
+import fr.istic.aco.minieditor.v1.EditorEngineImpl;
+import fr.istic.aco.minieditor.v1.EnterText;
+import fr.istic.aco.minieditor.v1.UIImpl;
 
 /**
  * @author 12001247
@@ -33,7 +33,7 @@ public class EnterTextTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EnterText#execute()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EnterText#execute()}.
 	 */
 	@Test
 	public final void testExecute() {
@@ -47,7 +47,7 @@ public class EnterTextTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EnterText#getName()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EnterText#getName()}.
 	 */
 	@Test
 	public final void testGetName() {

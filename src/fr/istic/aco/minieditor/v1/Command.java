@@ -1,4 +1,4 @@
-package fr.istic.aco.minieditor;
+package fr.istic.aco.minieditor.v1;
 
 
 
