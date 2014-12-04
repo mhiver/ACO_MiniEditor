@@ -74,7 +74,6 @@ public class AppEditor_v3
 		
 		uI.addCommand("u", new Undo(undoRedoManager));
 		uI.addCommand("r", new Redo(undoRedoManager));
-		uI.addCommand("R", new RedoAll(undoRedoManager));
 	}
 }
 

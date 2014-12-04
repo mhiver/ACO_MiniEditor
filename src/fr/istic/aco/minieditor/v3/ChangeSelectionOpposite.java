@@ -81,12 +81,8 @@ public class ChangeSelectionOpposite extends CommandOpposite implements Recordab
 	 */
 	
 	public void execute() {
-		if(!undoRedoManager.getIsInRedoAll()) {
-			undoRedoManager.record(changeSelectionUndoable);
-			editorEngine.changeSelectionOpposite(oldStartSelection,oldEndSelection);
-		} else {
-			undoRedoManager.record(changeSelectionUndoable);
-		}
+		undoRedoManager.record(changeSelectionUndoable);
+		editorEngine.changeSelectionOpposite(oldStartSelection,oldEndSelection);
 	}
 	
 	/*

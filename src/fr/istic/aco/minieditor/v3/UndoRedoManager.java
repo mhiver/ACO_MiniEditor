@@ -41,26 +41,12 @@ public interface UndoRedoManager {
 	 */
 	
 	public void redo();
-
-	/** 
-	 * Retourne dans l'état le plus avancé enregistré, revient à faire redo en boucle jusqu'à un point fixe
-	 * 
-	 */
-	public void redoAll();
-
+	
 	/**
 	 * Dis si on est en train d'effectuer un redo ou non
 	 * 
 	 * @return boolean
 	 */
 	public boolean getIsInRedo();
-
-
-	/**
-	 * Dis si on est en train d'effectuer un redoAll ou non
-	 * 
-	 * @return boolean
-	 */
-	boolean getIsInRedoAll();
 	
 }
