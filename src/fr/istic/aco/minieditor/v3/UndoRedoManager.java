@@ -18,7 +18,10 @@ import fr.istic.aco.minieditor.v2.Recordable;
 public interface UndoRedoManager {
 	
 	/**
-	 * méthode obligatoire du patron de conception memento qui va ajouter une commande à la macro à enregistrer
+	 * méthode obligatoire du patron de conception memento qui va:
+	 * 
+	 * 	- soit mémoriser l'état du moteur éditeur
+	 *  - soit mémoriser la commande dans l'ensemble des commandes déjà jouées
 	 * 
 	 * @param recordable cmd
 	 */

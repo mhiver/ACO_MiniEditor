@@ -12,9 +12,11 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 
 	private Map<Integer,Memento> editorEngineStates;
 
-	private Map<Integer,Recordable> CommandBefore;
+	private Map<Integer,Recordable> commandBefore;
+	private Map<Integer,Memento> commandBeforeMemento;
 
-	private Map<Integer,Recordable> CommandAfter;
+	private Map<Integer,Recordable> commandAfter;
+	private Map<Integer,Memento> commandAfterMemento;
 	
 	int numberCmd;
 	
@@ -23,8 +25,12 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 		this.numberCmd = 0;
 		
 		this.editorEngineStates = new TreeMap<Integer,Memento>();
-		this.CommandBefore = new TreeMap<Integer,Recordable>();
-		this.CommandAfter = new TreeMap<Integer,Recordable>();
+		
+		this.commandBefore = new TreeMap<Integer,Recordable>();
+		this.commandBeforeMemento = new TreeMap<Integer,Memento>();
+		
+		this.commandAfter = new TreeMap<Integer,Recordable>();
+		this.commandAfterMemento = new TreeMap<Integer,Memento>();
 		
 	}
 	
@@ -51,9 +57,18 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	public void record(Recordable cmd) {
 		this.numberCmd = this.numberCmd +1;
 		if (savedEditorEngine(this.numberCmd)) {
-			this.editorEngineStates.put(this.numberCmd, ((Recordable) this.editorEngine).getMemento());
+			Memento m = ((Recordable) this.editorEngine).getMemento();
+			
+			this.editorEngineStates.put(this.numberCmd, m);
 		} else {
 			
+			Memento m = cmd.getMemento();
+
+			this.commandBefore.put(this.numberCmd, cmd);
+			this.commandBeforeMemento.put(this.numberCmd, m);
+			
+			this.commandAfter = new TreeMap<Integer,Recordable>();
+			this.commandAfterMemento = new TreeMap<Integer,Memento>();
 		}
 	}
 	
