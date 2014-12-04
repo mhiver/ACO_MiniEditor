@@ -33,6 +33,9 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	
 	/* true si on est en train de faire un redo*/
 	private boolean isInRedo;
+
+	/* true si on est en train de faire un redoAll*/
+	private boolean isInRedoAll;
 	
 	/**
 	 * initialise tout les attrbuts
@@ -63,7 +66,6 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	 */
 	@Override	
 	public void undo() {
-		
 		if (this.numberCmd > 0) {
 			this.numberCmd = this.numberCmd - 1;
 			
@@ -110,12 +112,12 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 			
 			this.editorEngineStatesAfter.remove(this.numberCmd);
 				
-		} else if (this.editorEngineStatesBefore.containsKey(this.numberCmd)) {
-			Memento m = this.commandBeforeMemento.get(this.numberCmd);		
-			Recordable cmd = this.commandBefore.get(this.numberCmd);
+		} else if (this.commandAfter.containsKey(this.numberCmd)) {
+			Memento m = this.commandAfterMemento.get(this.numberCmd);		
+			Recordable cmd = this.commandAfter.get(this.numberCmd);
 			
-			this.commandBeforeMemento.remove(this.numberCmd);
-			this.commandBefore.remove(this.numberCmd);
+			this.commandAfterMemento.remove(this.numberCmd);
+			this.commandAfter.remove(this.numberCmd);
 			
 			cmd.setMemento(m);
 			
@@ -130,6 +132,89 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 			
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v3.UndoRedoManager#redoAll()
+	 */
+	@Override
+	public void redoAll() {
+
+		int lastStateNumber = this.editorEngineStatesAfter.size() + this.commandAfter.size() + this.commandBefore.size() -1 ;
+		
+		int closestStateNumber = lastStateNumber;
+		while(closestStateNumber > 0 && this.editorEngineStatesAfter.containsKey(closestStateNumber)) {
+			closestStateNumber = closestStateNumber -1;
+		}
+		
+		if (closestStateNumber > this.numberCmd) {
+			
+			for (int i = this.numberCmd; i < closestStateNumber; i++) {
+				isInRedoAll = true;
+				
+				if (this.editorEngineStatesAfter.containsKey(i)) {		
+					Memento stateBeforeRedo = ((Recordable) this.editorEngine).getMemento();
+					this.editorEngineStatesBefore.put(i-1, stateBeforeRedo);
+					
+					Memento m = this.editorEngineStatesAfter.get(i);			
+					((Recordable) this.editorEngine).setMemento(m);			
+					
+					this.editorEngineStatesAfter.remove(i);
+						
+				} else if (this.commandAfter.containsKey(i)) {
+					Memento m = this.commandAfterMemento.get(i);		
+					Recordable cmd = this.commandAfter.get(i);
+					
+					this.commandAfterMemento.remove(i);
+					this.commandAfter.remove(i);
+					
+					cmd.setMemento(m);
+					
+					this.isInRedo = true;
+					((Command) cmd).execute();
+					this.isInRedo = false;
+				}
+				
+				isInRedoAll = false;
+			}
+			
+			this.numberCmd = closestStateNumber;
+			
+			Memento closestState = this.editorEngineStatesAfter.get(closestStateNumber);
+			((Recordable) this.editorEngine).setMemento(closestState);
+		} else {
+			while(this.numberCmd <= lastStateNumber) {
+				this.numberCmd = this.numberCmd + 1;
+				
+				if (this.editorEngineStatesAfter.containsKey(this.numberCmd)) {		
+					Memento stateBeforeRedo = ((Recordable) this.editorEngine).getMemento();
+					this.editorEngineStatesBefore.put(this.numberCmd-1, stateBeforeRedo);
+					
+					Memento m = this.editorEngineStatesAfter.get(this.numberCmd);			
+					((Recordable) this.editorEngine).setMemento(m);			
+					
+					this.editorEngineStatesAfter.remove(this.numberCmd);
+						
+				} else if (this.commandAfter.containsKey(this.numberCmd)) {
+					Memento m = this.commandAfterMemento.get(this.numberCmd);		
+					Recordable cmd = this.commandAfter.get(this.numberCmd);
+					
+					this.commandAfterMemento.remove(this.numberCmd);
+					this.commandAfter.remove(this.numberCmd);
+					
+					cmd.setMemento(m);
+					
+					this.isInRedo = true;
+					((Command) cmd).execute();
+					this.isInRedo = false;
+					
+				} else {			
+					this.numberCmd = this.numberCmd - 1;
+				}
+			}
+		}
+		
+	}
+
 	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v2.Recorder#record(Recordable cmd)
 	 */
@@ -137,7 +222,6 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	public void record(Recordable cmd) {
 		 
 		if (this.isInRedo) {
-			
 			this.numberCmd = this.numberCmd -1;
 			
 			if (savedEditorEngine(this.numberCmd)) {
@@ -204,7 +288,25 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	 * 
 	 */
 	private boolean savedEditorEngine(Integer i) {
-		return true;
+		return (i % 10 == 0);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v3.UndoRedoManager#getIsInRedo()
+	 */
+	@Override
+	public boolean getIsInRedo() {
+		return this.isInRedo;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v3.UndoRedoManager#getIsInRedo()
+	 */
+	@Override
+	public boolean getIsInRedoAll() {
+		return this.isInRedoAll;
 	}
 	
 

@@ -1,12 +1,12 @@
 package fr.istic.aco.minieditor.v3;
 
-import fr.istic.aco.minieditor.v1.Copy;
+import fr.istic.aco.minieditor.v1.Cut;
 import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v2.Memento;
 import fr.istic.aco.minieditor.v2.Recordable;
 
 /**
- * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande Copy
+ * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande Cut
  * 
  * 
  * 
@@ -15,7 +15,7 @@ import fr.istic.aco.minieditor.v2.Recordable;
  * @version 1.2
  */
 
-public class CutUndoable extends Copy implements Recordable {
+public class CutUndoable extends Cut implements Recordable {
 
 	/* 
 	 * recorder joue le rôle caretaker
@@ -24,7 +24,7 @@ public class CutUndoable extends Copy implements Recordable {
 	
 	private UndoRedoManager undoRedoManager; 
 	
-	private CutOppositeUndoable cutOppositeUndoable;
+	private CutOpposite cutOppositeUndoable;
 	
 	
 	/**
@@ -38,7 +38,7 @@ public class CutUndoable extends Copy implements Recordable {
 	public CutUndoable(EditorEngine editorEngine, UndoRedoManager undoRedoManager) {
 		super(editorEngine);
 		this.undoRedoManager = undoRedoManager;
-		cutOppositeUndoable = new CutOppositeUndoable(editorEngine, undoRedoManager, this);
+		cutOppositeUndoable = new CutOpposite(editorEngine, undoRedoManager, this);
 	}
 	
 	/* (non-Javadoc)

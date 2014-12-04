@@ -14,7 +14,7 @@ import fr.istic.aco.minieditor.v2.Recordable;
  * @version 1.2
  */
 
-public class CopyOppositeUndoable extends CommandOpposite implements Recordable {
+public class CopyOpposite extends CommandOpposite implements Recordable {
 
 	/* commande inverse de this*/
 	private CopyUndoable copyUndoable;
@@ -41,7 +41,7 @@ public class CopyOppositeUndoable extends CommandOpposite implements Recordable 
 	 * @param undoRedoManager
 	 */
 	
-	public CopyOppositeUndoable(EditorEngine editorEngine,
+	public CopyOpposite(EditorEngine editorEngine,
 			UndoRedoManager undoRedoManager, CopyUndoable copyUndoable) {
 		this.editorEngine = editorEngine;
 		this.undoRedoManager = undoRedoManager;
@@ -55,7 +55,8 @@ public class CopyOppositeUndoable extends CommandOpposite implements Recordable 
 	 */
 	@Override
 	public Memento getMemento() {	
-		Memento m = new MemCopyOpposite(this.clipBoardText);
+		String clipboardText = this.editorEngine.getClipboardText();
+		Memento m = new MemCopyOpposite(clipboardText);
 		
 		return m;
 	}
@@ -77,8 +78,12 @@ public class CopyOppositeUndoable extends CommandOpposite implements Recordable 
 	 */
 	
 	public void execute() {
-		undoRedoManager.record(copyUndoable);
-		editorEngine.copyOppositeUndoable();
+		if(!undoRedoManager.getIsInRedoAll()) {
+			undoRedoManager.record(copyUndoable);
+			editorEngine.copyOpposite(this.clipBoardText);
+		} else {
+			undoRedoManager.record(copyUndoable);
+		}
 	}
 	
 	/*
@@ -98,7 +103,7 @@ public class CopyOppositeUndoable extends CommandOpposite implements Recordable 
 	 *
 	 *
 	 */
-	public class MemCopyOpposite implements Memento {
+	private class MemCopyOpposite implements Memento {
 		
 		private String savedClipBoardText;
 		

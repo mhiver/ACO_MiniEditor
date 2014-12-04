@@ -83,10 +83,80 @@ public  interface EditorEngine
 	public String printData();
 
 	/**
+	 * retourne le texte du buffer défini par la sélection
+	 * 
+	 * @return String
+	 */
+	
+	public String getSelectionText();
+
+	/**
+	 * retourne le text dans le clipboard
+	 * @return Strin
+	 */
+	public String getClipboardText();
+
+	/**
+	 * retourne l'entier de début de la sélection
+	 * @return int
+	 */
+	public int getStartSelection();
+
+
+	/**
+	 * retourne l'entier de fin de la sélection
+	 * @return int
+	 */
+	public int getEndSelection();
+
+	/**
 	 * Inverse de la commande Copy
+	 * @param clipBoardText 
 	 * 
 	 */
-	public void copyOppositeUndoable();
+	public void copyOpposite(String clipBoardText);
+
+	/**
+	 * méthode qui inverse l'effet d'une méthode couper effectuée
+	 * 
+	 * @param clipBoardText
+	 * @param textInBuffer
+	 * @param oldStartSelection
+	 * @param oldEndSelection
+	 */
+	public void cutOpposite(String clipBoardText, String textInBuffer,
+			int oldStartSelection, int oldEndSelection);
+
+	/**
+	 * méthode qui inverse l'effet d'une méthode enterText effectuée
+	 * 
+	 * @param textInBuffer
+	 * @param oldStartSelection
+	 * @param oldEndSelection
+	 */
+	public void enterTextOpposite(String textInBuffer,
+			int oldStartSelection, int oldEndSelection);
+
+	/**
+	 * inverse de changeSelection pour un selection effectué
+	 * 
+	 * @param oldStartSelection
+	 * @param oldEndSelection
+	 */
+	public void changeSelectionOpposite(int oldStartSelection,
+			int oldEndSelection);
+
+
+	/**
+	 * méthode qui inverse l'effet d'une méthode paste effectuée
+	 * 
+	 * @param textInBuffer
+	 * @param oldStartSelection
+	 * @param oldEndSelection
+	 */
+	public void pasteUndoable(String textInBuffer, int oldStartSelection,
+			int oldEndSelection);
+
 	
 	
 }

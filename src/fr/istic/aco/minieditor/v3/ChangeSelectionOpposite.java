@@ -5,19 +5,19 @@ import fr.istic.aco.minieditor.v2.Memento;
 import fr.istic.aco.minieditor.v2.Recordable;
 
 /**
- * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande cut
+ * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande ChangeSelection
  * 
- * commande inverse liée à cut
+ * commande inverse liée à ChangeSelection
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
  * @version 1.2
  */
 
-public class CutOppositeUndoable extends CommandOpposite implements Recordable {
+public class ChangeSelectionOpposite extends CommandOpposite implements Recordable {
 
 	/* commande inverse de this*/
-	private CutUndoable cutUndoable;
+	private ChangeSelectionUndoable changeSelectionUndoable;
 	
 	/* receveur de la commande */
 	private EditorEngine editorEngine; 
@@ -28,12 +28,6 @@ public class CutOppositeUndoable extends CommandOpposite implements Recordable {
 	 */
 	
 	private UndoRedoManager undoRedoManager;
-	
-	/* text à remettre dans le clipBoard */
-	private String clipBoardText;
-	
-	/* text à remettre dans le clipBoard */
-	private String textInBuffer;
 	
 	/* text à remettre dans le clipBoard */
 	private int oldStartSelection;
@@ -50,13 +44,11 @@ public class CutOppositeUndoable extends CommandOpposite implements Recordable {
 	 * @param undoRedoManager
 	 */
 	
-	public CutOppositeUndoable(EditorEngine editorEngine,
-			UndoRedoManager undoRedoManager, CutUndoable cutUndoable) {
+	public ChangeSelectionOpposite(EditorEngine editorEngine,
+			UndoRedoManager undoRedoManager, ChangeSelectionUndoable changeSelectionUndoable) {
 		this.editorEngine = editorEngine;
 		this.undoRedoManager = undoRedoManager;
-		this.cutUndoable = cutUndoable;
-		
-		this.clipBoardText = "";
+		this.changeSelectionUndoable = changeSelectionUndoable;
 	}
 
 	/* (non-Javadoc)
@@ -64,7 +56,10 @@ public class CutOppositeUndoable extends CommandOpposite implements Recordable {
 	 */
 	@Override
 	public Memento getMemento() {	
-		Memento m = new MemCopyOpposite(this.clipBoardText);
+		int savedOldStartSelection = this.editorEngine.getStartSelection();
+		int savedOldEndSelection = this.editorEngine.getEndSelection();
+		
+		Memento m = new MemChangeSelectionOpposite(savedOldStartSelection, savedOldEndSelection);
 		
 		return m;
 	}
@@ -74,9 +69,9 @@ public class CutOppositeUndoable extends CommandOpposite implements Recordable {
 	 */
 	@Override
 	public void setMemento(Memento m) {
-		String text = (String) m.getSavedState();
-		
-		this.clipBoardText = text;
+		Object[] savedState = (Object[]) m.getSavedState();
+		this.oldStartSelection = (int) savedState[0];
+		this.oldEndSelection = (int) savedState[1]; 
 	}
 
 	/* va sauvegarder la commande pour la macro */
@@ -86,8 +81,12 @@ public class CutOppositeUndoable extends CommandOpposite implements Recordable {
 	 */
 	
 	public void execute() {
-		undoRedoManager.record(copyUndoable);
-		editorEngine.copyOppositeUndoable();
+		if(!undoRedoManager.getIsInRedoAll()) {
+			undoRedoManager.record(changeSelectionUndoable);
+			editorEngine.changeSelectionOpposite(oldStartSelection,oldEndSelection);
+		} else {
+			undoRedoManager.record(changeSelectionUndoable);
+		}
 	}
 	
 	/*
@@ -107,22 +106,30 @@ public class CutOppositeUndoable extends CommandOpposite implements Recordable {
 	 *
 	 *
 	 */
-	public class MemCopyOpposite implements Memento {
+	private class MemChangeSelectionOpposite implements Memento {
 		
-		private String savedClipBoardText;
+		/* ancien debut de selection */
+		private int savedOldStartSelection;
 		
-		public MemCopyOpposite(String savedClipBoardText) {
-			this.savedClipBoardText = savedClipBoardText;
+		/* ancienne fin de selection */
+		private int savedOldEndSelection;
+
+		public MemChangeSelectionOpposite(int savedOldStartSelection, int savedOldEndSelection) {
+			this.savedOldStartSelection = savedOldStartSelection;
+			this.savedOldEndSelection = savedOldEndSelection;
 		}
-		
+
 		/*
 		 * (non-Javadoc)
 		 * @see fr.istic.aco.minieditor.v2.Memento#getSavedState()
 		 */
 		@Override
 		public Object getSavedState() {
-			return this.savedClipBoardText;
+			Object[] savedState = new Object[2];
+			savedState[0] = this.savedOldStartSelection;
+			savedState[1] = this.savedOldEndSelection; 
 			
+			return savedState;
 		}
 		
 	}

@@ -39,7 +39,7 @@ public class ChangeSelection implements Command
 	 * UI joue le rôle de d'invoqueur dans le patron de conception Command
 	 */
 	
-	private UI uI;
+	protected UI uI;
 	
 	/**
 	 * editorEngine doit être non nul
@@ -51,6 +51,9 @@ public class ChangeSelection implements Command
 	public ChangeSelection(EditorEngine editorEngine, UI uI) {
 		this.editorEngine = editorEngine;
 		this.uI = uI;
+		
+		this.start = 0;
+		this.end = 0;
 	}
 
 

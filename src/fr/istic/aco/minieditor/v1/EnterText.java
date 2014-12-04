@@ -29,7 +29,7 @@ public class EnterText implements Command
 	 * UI joue le rôle de d'invoqueur dans le patron de conception Command
 	 */
 	
-	private UI uI;
+	protected UI uI;
 	
 	/**
 	 * editorEngine doit être non nul
@@ -41,6 +41,8 @@ public class EnterText implements Command
 	public EnterText(EditorEngine editorEngine, UI uI) {
 		this.editorEngine = editorEngine;
 		this.uI = uI;
+		
+		this.text = "";
 	}
 
 	/*

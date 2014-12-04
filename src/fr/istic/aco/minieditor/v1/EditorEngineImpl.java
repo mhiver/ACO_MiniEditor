@@ -79,7 +79,8 @@ public class EditorEngineImpl implements EditorEngine
 	 * 
 	 * @return String text
 	 */
-	private String getSelectionText() {
+	@Override
+	public String getSelectionText() {
 		int start = selection.getStart();
 		int end = selection.getEnd();
 		return buffer.getContent(start, end);
@@ -182,14 +183,94 @@ public class EditorEngineImpl implements EditorEngine
 		
 		return buff.toString();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v1.EditorEngine#copyOppositeUndoable()
- 	*/
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#getClipboardText()
+	 */
 	@Override
-	public void copyOppositeUndoable() {
-		// TODO Auto-generated method stub
+	public String getClipboardText() {
+		return this.clipboard.getText();
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#getStartSelection()
+	 */
+	@Override
+	public int getStartSelection() {
+		return this.selection.getStart();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#getEndSelection()
+	 */
+	@Override
+	public int getEndSelection() {
+		return this.selection.getEnd();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#copyOppositeUndoable(java.lang.String)
+	 */
+	@Override
+	public void copyOpposite(String clipBoardText) {
+		this.clipboard.setText(clipBoardText);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#cutOppositeUndoable(java.lang.String, java.lang.String, int, int)
+	 */
+	@Override
+	public void cutOpposite(String clipBoardText, String textInBuffer,
+			int oldStartSelection, int oldEndSelection) {
+
+		int start = selection.getStart();
+		int end = selection.getEnd();
+		
+		this.clipboard.setText(clipBoardText);
+		this.buffer.setContent(start, end, textInBuffer);
+		this.selection.setStart(oldStartSelection);
+		this.selection.setEnd(oldEndSelection);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#enterTextOppositeUndoable(java.lang.String, int, int)
+	 */
+	@Override
+	public void enterTextOpposite(String textInBuffer,
+			int oldStartSelection, int oldEndSelection) {
+		this.selection.setStart(oldStartSelection);
+		this.buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);
+		this.selection.setEnd(oldEndSelection);
+		
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#changeSelectionOpposite(int, int)
+	 */
+	@Override
+	public void changeSelectionOpposite(int oldStartSelection,
+			int oldEndSelection) {
+		this.selection.setStart(oldStartSelection);
+		this.selection.setEnd(oldEndSelection);
+		
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#pasteUndoable(java.lang.String, int, int)
+	 */
+	@Override
+	public void pasteUndoable(String textInBuffer, int oldStartSelection,
+			int oldEndSelection) {
+		this.selection.setStart(oldStartSelection);
+		this.buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);
+		this.selection.setEnd(oldEndSelection);
 		
 	}
 
