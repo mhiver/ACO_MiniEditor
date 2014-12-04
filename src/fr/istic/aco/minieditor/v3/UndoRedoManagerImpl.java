@@ -40,6 +40,8 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	@Override	
 	public void undo() {
 		
+		this.numberCmd = this.numberCmd - 1;
+		
 	}
 
 	/* (non-Javadoc)
@@ -47,6 +49,7 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	 */
 	@Override	
 	public void redo() {
+		
 		
 	}
 
@@ -60,6 +63,9 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 			Memento m = ((Recordable) this.editorEngine).getMemento();
 			
 			this.editorEngineStates.put(this.numberCmd, m);
+			
+			this.commandAfter = new TreeMap<Integer,Recordable>();
+			this.commandAfterMemento = new TreeMap<Integer,Memento>();
 		} else {
 			
 			Memento m = cmd.getMemento();
