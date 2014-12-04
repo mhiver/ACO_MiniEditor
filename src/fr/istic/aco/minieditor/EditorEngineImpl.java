@@ -13,17 +13,17 @@ public class EditorEngineImpl implements EditorEngine
 {
 	/* Joue le rôle de buffer qui contiendra le texte de l'éditeur */
 	
-	private Buffer buffer;
+	protected Buffer buffer;
 	
 
 	/* Joue le rôle de presse papier qui contiendra le texte du presse papier */
 	
-	private Clipboard clipboard;
+	protected Clipboard clipboard;
 	
 
 	/* Joue le rôle de selection qui le début et la fin de la sélection */
 	
-	private Selection selection;
+	protected Selection selection;
 	
 	
 	/**
@@ -41,7 +41,7 @@ public class EditorEngineImpl implements EditorEngine
 	}
 
 	/**
-	 * @return le selection
+	 * @return la selection
 	 */
 	public Selection getSelection() {
 		return selection;
