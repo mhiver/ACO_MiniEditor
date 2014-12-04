@@ -7,7 +7,7 @@ import fr.istic.aco.minieditor.v1.Command;
  * de commande concrete Redo
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
- * @version 1.3
+ * @version 1.2
  */
 
 public class Redo implements Command {

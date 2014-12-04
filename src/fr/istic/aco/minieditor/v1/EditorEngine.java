@@ -7,7 +7,7 @@ package fr.istic.aco.minieditor.v1;
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
- * @version 1.0
+ * @version 1.2
  */
 
 public  interface EditorEngine 
@@ -81,6 +81,12 @@ public  interface EditorEngine
 	 * @return String
 	 */
 	public String printData();
+
+	/**
+	 * Inverse de la commande Copy
+	 * 
+	 */
+	public void copyOppositeUndoable();
 	
 	
 }

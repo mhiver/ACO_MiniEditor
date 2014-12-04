@@ -6,7 +6,7 @@ package fr.istic.aco.minieditor.v1;
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
- * @version 1.0
+ * @version 1.2
  */
 
 public class EditorEngineImpl implements EditorEngine
@@ -181,6 +181,16 @@ public class EditorEngineImpl implements EditorEngine
 		buff.append("\n");
 		
 		return buff.toString();
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#copyOppositeUndoable()
+ 	*/
+	@Override
+	public void copyOppositeUndoable() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
