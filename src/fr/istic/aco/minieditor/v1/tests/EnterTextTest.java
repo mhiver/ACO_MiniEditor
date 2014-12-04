@@ -9,8 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 import fr.istic.aco.minieditor.v1.EnterText;
+import fr.istic.aco.minieditor.v1.UI;
 import fr.istic.aco.minieditor.v1.UIImpl;
 
 /**
@@ -19,8 +21,8 @@ import fr.istic.aco.minieditor.v1.UIImpl;
  */
 public class EnterTextTest {
 	EnterText enterText;
-	EditorEngineImpl editorEngine;
-	UIImpl uI;
+	EditorEngine editorEngine;
+	UI uI;
 	
 	/**
 	 * @throws java.lang.Exception

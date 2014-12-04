@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fr.istic.aco.minieditor.v1.ChangeSelection;
+import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 import fr.istic.aco.minieditor.v1.UIImpl;
 
@@ -20,7 +21,7 @@ import org.mockito.Mockito;
  */
 public class ChangeSelectionTest {
 	ChangeSelection changeSelection;
-	EditorEngineImpl editorEngine;
+	EditorEngine editorEngine;
 	UIImpl uI;
 
 	/**

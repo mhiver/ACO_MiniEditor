@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 import fr.istic.aco.minieditor.v1.Paste;
 
@@ -18,7 +19,7 @@ import fr.istic.aco.minieditor.v1.Paste;
  */
 public class PasteTest {
 	Paste paste;
-	EditorEngineImpl editorEngine;
+	EditorEngine editorEngine;
 
 	/**
 	 * @throws java.lang.Exception

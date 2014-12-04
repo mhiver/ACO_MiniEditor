@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import fr.istic.aco.minieditor.v1.Copy;
+import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 
 /**
@@ -15,7 +16,7 @@ import fr.istic.aco.minieditor.v1.EditorEngineImpl;
  */
 public class CopyTest {
 	Copy copy;
-	EditorEngineImpl editorEngine;
+	EditorEngine editorEngine;
 
 	/**
 	 * @throws java.lang.Exception

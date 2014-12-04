@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import fr.istic.aco.minieditor.v1.Quit;
+import fr.istic.aco.minieditor.v1.UI;
 import fr.istic.aco.minieditor.v1.UIImpl;
 
 /**
@@ -18,7 +19,7 @@ import fr.istic.aco.minieditor.v1.UIImpl;
  */
 public class QuitTest {
 	Quit quit;
-	UIImpl uI;
+	UI uI;
 
 	/**
 	 * @throws java.lang.Exception
