@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import fr.istic.aco.minieditor.Cut;
 import fr.istic.aco.minieditor.EditorEngineImpl;
@@ -24,7 +25,7 @@ public class CutTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		editorEngine = new EditorEngineImpl();
+		editorEngine = Mockito.mock(EditorEngineImpl.class);
 		cut = new Cut(editorEngine);
 	}
 
@@ -33,29 +34,8 @@ public class CutTest {
 	 */
 	@Test
 	public final void testExecute() {
-		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("", editorEngine.getClipboard().getText());
-		editorEngine.enterText("Hello world");
-		editorEngine.changeSelection(3, 8);
 		cut.execute();
-		assertEquals("Helrld", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(3, editorEngine.getSelection().getStart());
-		assertEquals(3, editorEngine.getSelection().getEnd());
-		assertEquals("lo wo", editorEngine.getClipboard().getText());
-		editorEngine.changeSelection(0, 5);
-		cut.execute();
-		assertEquals("d", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("Helrl", editorEngine.getClipboard().getText());
-		editorEngine.changeSelection(1, 1);
-		cut.execute();
-		assertEquals("d", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(1, editorEngine.getSelection().getStart());
-		assertEquals(1, editorEngine.getSelection().getEnd());
-		assertEquals("Helrl", editorEngine.getClipboard().getText());
+		Mockito.verify(editorEngine).cut();
 	}
 
 	/**

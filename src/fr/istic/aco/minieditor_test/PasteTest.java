@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import fr.istic.aco.minieditor.EditorEngineImpl;
 import fr.istic.aco.minieditor.Paste;
@@ -24,7 +25,7 @@ public class PasteTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		editorEngine = new EditorEngineImpl();
+		editorEngine = Mockito.mock(EditorEngineImpl.class);
 		paste = new Paste(editorEngine);
 	}
 
@@ -33,29 +34,8 @@ public class PasteTest {
 	 */
 	@Test
 	public final void testExecute() {
-		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("", editorEngine.getClipboard().getText());
-		editorEngine.enterText("Hello world");
-		editorEngine.changeSelection(3, 8);
-		editorEngine.copy();
 		paste.execute();
-		assertEquals("Hello world", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(8, editorEngine.getSelection().getStart());
-		assertEquals(8, editorEngine.getSelection().getEnd());
-		assertEquals("lo wo", editorEngine.getClipboard().getText());
-		paste.execute();
-		assertEquals("Hello wolo world", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(13, editorEngine.getSelection().getStart());
-		assertEquals(13, editorEngine.getSelection().getEnd());
-		assertEquals("lo wo", editorEngine.getClipboard().getText());
-		editorEngine.changeSelection(0, 1);
-		paste.execute();
-		assertEquals("lo woello wolo world", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(5, editorEngine.getSelection().getStart());
-		assertEquals(5, editorEngine.getSelection().getEnd());
-		assertEquals("lo wo", editorEngine.getClipboard().getText());
+		Mockito.verify(editorEngine).paste();
 	}
 
 	/**

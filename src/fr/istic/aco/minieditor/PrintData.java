@@ -16,14 +16,21 @@ public class PrintData implements Command {
 	
 	private EditorEngine editorEngine;
 	
+	/*
+	 * UI joue le rôle de d'invoqueur dans le patron de conception Command
+	 */
+	
+	private UI uI;
+	
 	
 	/**
 	 * editorEngine doit être non nul
 	 * 
 	 * @param editorEngine
 	 */
-	public PrintData(EditorEngine editorEngine) {
+	public PrintData(EditorEngine editorEngine, UI uI) {
 		this.editorEngine = editorEngine;
+		this.uI = uI;
 	}
 
 	/*
@@ -35,7 +42,7 @@ public class PrintData implements Command {
 	 */
 	@Override	
 	public void execute() {
-		editorEngine.printData();
+		uI.printText(editorEngine.printData());
 	}
 
 	/*

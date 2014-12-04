@@ -113,23 +113,6 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#runInvokerLoop()}.
-	 */
-	@Test
-	public final void testRunInvokerLoop() {
-		uI.setPrintStream(new PrintStream(os));
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#stopLoop()}.
-	 */
-	@Test
-	public final void testStopLoop() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
 	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#addCommand(java.lang.String, fr.istic.aco.minieditor.Command)}.
 	 */
 	@Test

@@ -8,25 +8,29 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import fr.istic.aco.minieditor.ChangeSelection;
+import fr.istic.aco.minieditor.EditorEngineImpl;
+import fr.istic.aco.minieditor.UIImpl;
+
+import org.mockito.Mockito;
+
 /**
  * @author 12001247
  *
  */
 public class ChangeSelectionTest {
+	ChangeSelection changeSelection;
+	EditorEngineImpl editorEngine;
+	UIImpl uI;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	/**
-	 * Test method for {@link fr.istic.aco.minieditor.ChangeSelection#ChangeSelection(fr.istic.aco.minieditor.EditorEngine, fr.istic.aco.minieditor.UI)}.
-	 */
-	@Test
-	public final void testChangeSelection() {
-		fail("Not yet implemented"); // TODO
+		editorEngine = Mockito.mock(EditorEngineImpl.class);
+		uI = Mockito.mock(UIImpl.class);
+		changeSelection = new ChangeSelection(editorEngine, uI);
 	}
 
 	/**
@@ -34,7 +38,11 @@ public class ChangeSelectionTest {
 	 */
 	@Test
 	public final void testExecute() {
-		fail("Not yet implemented"); // TODO
+		Mockito.when(uI.getStart()).thenReturn(3);
+		Mockito.when(uI.getEnd()).thenReturn(6);
+		
+		changeSelection.execute();
+		Mockito.verify(editorEngine).changeSelection(3, 6);
 	}
 
 	/**
@@ -42,7 +50,7 @@ public class ChangeSelectionTest {
 	 */
 	@Test
 	public final void testGetName() {
-		fail("Not yet implemented"); // TODO
+		assertEquals("Change selection", changeSelection.getName());
 	}
 
 }

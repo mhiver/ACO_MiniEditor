@@ -203,4 +203,9 @@ public class UIImpl implements UI {
 	public PrintStream getPrintStream() {
 		return printStream;
 	}
+
+	@Override
+	public void printText(String text) {
+		printStream.println(text);
+	}
 }

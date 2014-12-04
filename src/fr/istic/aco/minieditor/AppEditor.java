@@ -62,7 +62,7 @@ public class AppEditor
 		uI.addCommand("i", new EnterText(editorEngine, uI));
 		uI.addCommand("s", new ChangeSelection(editorEngine, uI));
 		uI.addCommand("q", new Quit(uI));
-		uI.addCommand("p", new PrintData(editorEngine));
+		uI.addCommand("p", new PrintData(editorEngine, uI));
 	}
 }
 
