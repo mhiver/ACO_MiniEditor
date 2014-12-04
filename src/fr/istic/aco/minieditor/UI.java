@@ -97,5 +97,12 @@ public  interface UI
 	*/
 	public void addCommand(String keyword, Command cmd);
 	
+	/**
+	* Demande à l'interface utilisateur d'afficher un texte
+	*
+	* @param text le texte à afficher
+	*/
+	public void printText(String text);
+	
 }
 

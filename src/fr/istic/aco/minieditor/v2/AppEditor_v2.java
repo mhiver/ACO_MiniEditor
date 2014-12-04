@@ -70,7 +70,7 @@ public class AppEditor_v2
 		uI.addCommand("i", new EnterTextRecordable(editorEngine, uI, recorder));
 		uI.addCommand("s", new ChangeSelectionRecordable(editorEngine, uI, recorder));
 		uI.addCommand("q", new Quit(uI));
-		uI.addCommand("p", new PrintData(editorEngine));
+		uI.addCommand("p", new PrintData(editorEngine, uI));
 		
 		uI.addCommand("r", new Replay(recorder));
 		uI.addCommand("b", new Begin(recorder));
