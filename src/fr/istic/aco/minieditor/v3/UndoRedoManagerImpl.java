@@ -2,7 +2,7 @@ package fr.istic.aco.minieditor.v3;
 import java.util.Map;
 import java.util.TreeMap;
 
-import fr.istic.aco.minieditor.EditorEngine;
+import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v2.Memento;
 import fr.istic.aco.minieditor.v2.Recordable;
 

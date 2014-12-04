@@ -1,4 +1,4 @@
-package fr.istic.aco.minieditor;
+package fr.istic.aco.minieditor.v1;
 
 
 /**
@@ -88,7 +88,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.EditorEngine#changeSelection(int start, int end)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#changeSelection(int start, int end)
 	 */
 	@Override
 	public void changeSelection(int start, int end) {
@@ -118,7 +118,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.EditorEngine#copy()
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#copy()
 	 */
 	@Override
 	public void copy() {
@@ -130,7 +130,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.EditorEngine#enterText(String text)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#enterText(String text)
 	 */
 	@Override
 	public void enterText(String text) {
@@ -140,7 +140,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.EditorEngine#paste()
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#paste()
 	 */
 	@Override
 	public void paste() {
@@ -151,7 +151,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.EditorEngine#cut()
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#cut()
 	 */
 	@Override
 	public void cut() {
@@ -165,7 +165,7 @@ public class EditorEngineImpl implements EditorEngine
 
 
 	/**
-	 * @see fr.istic.aco.minieditor.EditorEngine#printData()
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#printData()
 	 */
 	@Override
 	public String printData() {

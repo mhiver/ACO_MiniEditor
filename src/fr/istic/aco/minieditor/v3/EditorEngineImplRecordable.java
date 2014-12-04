@@ -1,6 +1,6 @@
 package fr.istic.aco.minieditor.v3;
 
-import fr.istic.aco.minieditor.EditorEngineImpl;
+import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 import fr.istic.aco.minieditor.v2.Memento;
 import fr.istic.aco.minieditor.v2.Recordable;
 

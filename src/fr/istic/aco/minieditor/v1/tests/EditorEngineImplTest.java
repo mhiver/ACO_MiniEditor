@@ -1,14 +1,14 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.istic.aco.minieditor.EditorEngineImpl;
+import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 
 /**
  * @author 12001247
@@ -27,7 +27,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#EditorEngineImpl()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#EditorEngineImpl()}.
 	 */
 	@Test
 	public final void testEditorEngineImpl() {
@@ -38,7 +38,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#changeSelection(int, int)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#changeSelection(int, int)}.
 	 */
 	@Test
 	public final void testChangeSelection() {
@@ -69,7 +69,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#copy()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#copy()}.
 	 */
 	@Test
 	public final void testCopy() {
@@ -95,7 +95,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#enterText(java.lang.String)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#enterText(java.lang.String)}.
 	 */
 	@Test
 	public final void testEnterText() {
@@ -112,7 +112,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#paste()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#paste()}.
 	 */
 	@Test
 	public final void testPaste() {
@@ -138,7 +138,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#cut()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#cut()}.
 	 */
 	@Test
 	public final void testCut() {
@@ -164,7 +164,7 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#printData()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.EditorEngineImpl#printData()}.
 	 */
 	@Test
 	public final void testPrintData() {

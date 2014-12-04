@@ -1,8 +1,8 @@
 package fr.istic.aco.minieditor.v2;
 
-import fr.istic.aco.minieditor.EditorEngine;
-import fr.istic.aco.minieditor.EnterText;
-import fr.istic.aco.minieditor.UI;
+import fr.istic.aco.minieditor.v1.EditorEngine;
+import fr.istic.aco.minieditor.v1.EnterText;
+import fr.istic.aco.minieditor.v1.UI;
 
 /**
  * Implémente l'interface Recordable afin de sauvegarder un memento lié à la commande EnterTexte

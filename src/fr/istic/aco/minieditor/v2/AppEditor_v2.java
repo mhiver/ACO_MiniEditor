@@ -1,6 +1,6 @@
 package fr.istic.aco.minieditor.v2;
 
-import fr.istic.aco.minieditor.*;;
+import fr.istic.aco.minieditor.v1.*;
 /**
  * Classe qui joue le rôle de client dans le patron de conception Command
  * 

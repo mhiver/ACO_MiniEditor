@@ -3,7 +3,7 @@ package fr.istic.aco.minieditor.v2;
 import java.util.LinkedList;
 import java.util.List;
 
-import fr.istic.aco.minieditor.Command;
+import fr.istic.aco.minieditor.v1.Command;
 
 /**
  * Classe qui implémente l'interface Recorder
