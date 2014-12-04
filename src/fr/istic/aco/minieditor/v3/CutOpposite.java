@@ -93,12 +93,8 @@ public class CutOpposite extends CommandOpposite implements Recordable {
 	 */
 	
 	public void execute() {
-		if(!undoRedoManager.getIsInRedoAll()) {
-			undoRedoManager.record(cutUndoable);
-			editorEngine.cutOpposite(clipBoardText,textInBuffer,oldStartSelection,oldEndSelection);
-		} else {
-			undoRedoManager.record(cutUndoable);
-		}
+		undoRedoManager.record(cutUndoable);
+		editorEngine.cutOpposite(clipBoardText,textInBuffer,oldStartSelection,oldEndSelection);
 	}
 	
 	/*

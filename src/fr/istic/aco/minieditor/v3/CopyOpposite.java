@@ -78,12 +78,8 @@ public class CopyOpposite extends CommandOpposite implements Recordable {
 	 */
 	
 	public void execute() {
-		if(!undoRedoManager.getIsInRedoAll()) {
-			undoRedoManager.record(copyUndoable);
-			editorEngine.copyOpposite(this.clipBoardText);
-		} else {
-			undoRedoManager.record(copyUndoable);
-		}
+		undoRedoManager.record(copyUndoable);
+		editorEngine.copyOpposite(this.clipBoardText);
 	}
 	
 	/*

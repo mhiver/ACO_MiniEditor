@@ -87,12 +87,8 @@ public class EnterTextOpposite extends CommandOpposite implements Recordable {
 	 */
 	
 	public void execute() {
-		if(!undoRedoManager.getIsInRedoAll()) {
-			undoRedoManager.record(enterTextUndoable);
-			editorEngine.enterTextOpposite(textInBuffer,oldStartSelection,oldEndSelection);
-		} else {
-			undoRedoManager.record(enterTextUndoable);
-		}
+		undoRedoManager.record(enterTextUndoable);
+		editorEngine.enterTextOpposite(textInBuffer,oldStartSelection,oldEndSelection);
 	}
 	
 	/*
