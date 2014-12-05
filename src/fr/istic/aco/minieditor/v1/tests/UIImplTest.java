@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
@@ -16,9 +16,9 @@ import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.istic.aco.minieditor.Command;
-import fr.istic.aco.minieditor.Quit;
-import fr.istic.aco.minieditor.UIImpl;
+import fr.istic.aco.minieditor.v1.Command;
+import fr.istic.aco.minieditor.v1.Quit;
+import fr.istic.aco.minieditor.v1.UIImpl;
 
 /**
  * @author 12001247
@@ -62,7 +62,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#getEnd()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#getEnd()}.
 	 */
 	@Test
 	public final void testGetEnd() {
@@ -79,7 +79,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#getStart()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#getStart()}.
 	 */
 	@Test
 	public final void testGetStart() {
@@ -96,7 +96,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#getText()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#getText()}.
 	 */
 	@Test
 	public final void testGetText() {
@@ -113,7 +113,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#addCommand(java.lang.String, fr.istic.aco.minieditor.Command)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#addCommand(java.lang.String, fr.istic.aco.minieditor.v1.Command)}.
 	 */
 	@Test
 	public final void testAddCommand() {
@@ -140,7 +140,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#setReadStream(java.io.InputStream)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#setReadStream(java.io.InputStream)}.
 	 */
 	@Test
 	public final void testSetReadStream() {
@@ -156,7 +156,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#setReadStream(java.io.InputStream)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#setReadStream(java.io.InputStream)}.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public final void testSetReadStreamNull() {
@@ -165,7 +165,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#setPrintStream(java.io.PrintStream)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#setPrintStream(java.io.PrintStream)}.
 	 */
 	@Test
 	public final void testSetPrintStream() {
@@ -185,7 +185,7 @@ public class UIImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.UIImpl#setPrintStream(java.io.PrintStream)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.UIImpl#setPrintStream(java.io.PrintStream)}.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public final void testSetPrintStreamNull() {

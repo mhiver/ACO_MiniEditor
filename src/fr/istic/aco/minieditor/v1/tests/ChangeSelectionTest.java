@@ -1,16 +1,16 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.istic.aco.minieditor.ChangeSelection;
-import fr.istic.aco.minieditor.EditorEngineImpl;
-import fr.istic.aco.minieditor.UIImpl;
+import fr.istic.aco.minieditor.v1.ChangeSelection;
+import fr.istic.aco.minieditor.v1.EditorEngineImpl;
+import fr.istic.aco.minieditor.v1.UIImpl;
 
 import org.mockito.Mockito;
 
@@ -34,7 +34,7 @@ public class ChangeSelectionTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.ChangeSelection#execute()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.ChangeSelection#execute()}.
 	 */
 	@Test
 	public final void testExecute() {
@@ -46,7 +46,7 @@ public class ChangeSelectionTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.ChangeSelection#getName()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.ChangeSelection#getName()}.
 	 */
 	@Test
 	public final void testGetName() {

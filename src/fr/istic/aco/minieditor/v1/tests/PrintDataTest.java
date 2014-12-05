@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import fr.istic.aco.minieditor.EditorEngineImpl;
-import fr.istic.aco.minieditor.PrintData;
-import fr.istic.aco.minieditor.UIImpl;
+import fr.istic.aco.minieditor.v1.EditorEngineImpl;
+import fr.istic.aco.minieditor.v1.PrintData;
+import fr.istic.aco.minieditor.v1.UIImpl;
 
 /**
  * @author 12001247
@@ -33,7 +33,7 @@ public class PrintDataTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.PrintData#execute()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.PrintData#execute()}.
 	 */
 	@Test
 	public final void testExecute() {
@@ -42,7 +42,7 @@ public class PrintDataTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.PrintData#getName()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.PrintData#getName()}.
 	 */
 	@Test
 	public final void testGetName() {

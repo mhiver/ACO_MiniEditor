@@ -1,14 +1,14 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.istic.aco.minieditor.Selection;
+import fr.istic.aco.minieditor.v1.Selection;
 
 /**
  * @author 12001247
@@ -26,7 +26,7 @@ public class SelectionTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Selection#Selection()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Selection#Selection()}.
 	 */
 	@Test
 	public final void testSelection() {
@@ -39,7 +39,7 @@ public class SelectionTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Selection#setLength(int)}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Selection#setLength(int)}.
 	 */
 	@Test
 	public final void testSetLength() {

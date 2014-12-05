@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import fr.istic.aco.minieditor.Copy;
-import fr.istic.aco.minieditor.EditorEngineImpl;
+import fr.istic.aco.minieditor.v1.Copy;
+import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 
 /**
  * @author 12001247
@@ -30,7 +30,7 @@ public class CopyTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Copy#execute()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Copy#execute()}.
 	 */
 	@Test
 	public final void testExecute() {
@@ -39,7 +39,7 @@ public class CopyTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Copy#getName()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Copy#getName()}.
 	 */
 	@Test
 	public final void testGetName() {

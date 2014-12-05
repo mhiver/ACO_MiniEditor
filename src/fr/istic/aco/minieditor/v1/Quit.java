@@ -1,4 +1,4 @@
-package fr.istic.aco.minieditor;
+package fr.istic.aco.minieditor.v1;
 
 
 /**
@@ -34,7 +34,7 @@ public class Quit implements Command
 	 */
 	
 	/**
-	 * @see fr.istic.aco.minieditor.Command#execute()
+	 * @see fr.istic.aco.minieditor.v1.Command#execute()
 	 */
 	@Override
 	public void execute() {
@@ -47,7 +47,7 @@ public class Quit implements Command
 	 */
 	
 	/**
-	 * @see fr.istic.aco.minieditor.Command#getName()
+	 * @see fr.istic.aco.minieditor.v1.Command#getName()
 	 */
 	@Override
 	public String getName() {

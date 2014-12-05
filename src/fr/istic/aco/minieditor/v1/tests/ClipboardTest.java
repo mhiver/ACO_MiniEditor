@@ -1,14 +1,14 @@
 /**
  * 
  */
-package fr.istic.aco.minieditor_test;
+package fr.istic.aco.minieditor.v1.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import fr.istic.aco.minieditor.Clipboard;
+import fr.istic.aco.minieditor.v1.Clipboard;
 
 /**
  * @author 12001247
@@ -26,7 +26,7 @@ public class ClipboardTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.Clipboard#Clipboard()}.
+	 * Test method for {@link fr.istic.aco.minieditor.v1.Clipboard#Clipboard()}.
 	 */
 	@Test
 	public final void testClipboard() {
