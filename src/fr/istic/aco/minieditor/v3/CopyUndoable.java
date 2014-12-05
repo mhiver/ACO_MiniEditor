@@ -83,7 +83,6 @@ public class CopyUndoable extends Copy implements Recordable {
 
 		@Override
 		public Object getSavedState() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 		

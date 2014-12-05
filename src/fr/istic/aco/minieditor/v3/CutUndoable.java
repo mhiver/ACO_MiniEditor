@@ -80,7 +80,6 @@ public class CutUndoable extends Cut implements Recordable {
 
 		@Override
 		public Object getSavedState() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 		
