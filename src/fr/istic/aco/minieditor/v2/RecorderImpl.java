@@ -142,11 +142,80 @@ public class RecorderImpl implements Recorder{
 
 
 	/* (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v2.Recorder#getRecording()
+	 * @see fr.istic.aco.minieditor.v2.Recorder#getReplaying()
 	 */
 	@Override	
 	public boolean getReplaying() {
 		return replaying;
 	}
+	
+	/**
+	 * Retourne le i-ème élément de macro
+	 * @param i
+	 * @return Recordable
+	 */
+	public Recordable getMacroElement(int i) {
+		return macro.get(i);
+	}
+	
+	/**
+	 * Retourne le i-ème élément de mementos
+	 * @param i
+	 * @return Memento
+	 */
+	public Memento getMementoElement(int i) {
+		return mementos.get(i);
+	}
+	
+	/**
+	 * Retourne la taille de la liste macro
+	 * @return int
+	 */
+	public int getMacroLength() {
+		return macro.size();
+	}
 
+	/**
+	 * Retourne la taille de la liste mementos
+	 * @return int
+	 */
+	public int getMementoLength() {
+		return mementos.size();
+	}
+	
+	/**
+	 * Retourne le i-ème élément de nextMacro
+	 * @param i
+	 * @return Recordable
+	 */
+	public Recordable getNextMacroElement(int i) {
+		return nextMacro.get(i);
+	}
+	
+	/**
+	 * Retourne le i-ème élément de nextMementos
+	 * @param i
+	 * @return Memento
+	 */
+	public Memento getNextMementoElement(int i) {
+		return nextMementos.get(i);
+	}
+	
+	/**
+	 * Retourne la taille de la liste nextMacro
+	 * @return int
+	 */
+	public int getNextMacroLength() {
+		return nextMacro.size();
+	}
+
+	/**
+	 * Retourne la taille de la liste nextMementos
+	 * @return int
+	 */
+	public int getNextMementoLength() {
+		return nextMementos.size();
+	}
+
+	
 }
