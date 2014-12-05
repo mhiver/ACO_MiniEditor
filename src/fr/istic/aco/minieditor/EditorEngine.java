@@ -76,11 +76,11 @@ public  interface EditorEngine
 	public void paste() ;
 	
 	/**
-	 * Va afficher les données associée au Buffer, Clipboard et Selection dans la sortie
-	 * 
+	 * Retourne une chaîne représentant les données associée au Buffer, Clipboard et Selection
+	 *
+	 * @return String
 	 */
-	
-	public void printData();
+	public String printData();
 	
 	
 }

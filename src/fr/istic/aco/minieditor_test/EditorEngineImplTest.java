@@ -27,14 +27,21 @@ public class EditorEngineImplTest {
 	}
 
 	/**
-	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#changeSelection(int, int)}.
+	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#EditorEngineImpl()}.
 	 */
 	@Test
-	public final void testChangeSelection() {
+	public final void testEditorEngineImpl() {
 		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
 		assertEquals(0, editorEngine.getSelection().getStart());
 		assertEquals(0, editorEngine.getSelection().getEnd());
 		assertEquals("", editorEngine.getClipboard().getText());
+	}
+
+	/**
+	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#changeSelection(int, int)}.
+	 */
+	@Test
+	public final void testChangeSelection() {
 		editorEngine.enterText("Hello world");
 		assertEquals(11, editorEngine.getSelection().getStart());
 		assertEquals(11, editorEngine.getSelection().getEnd());
@@ -66,10 +73,6 @@ public class EditorEngineImplTest {
 	 */
 	@Test
 	public final void testCopy() {
-		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("", editorEngine.getClipboard().getText());
 		editorEngine.enterText("Hello world");
 		editorEngine.changeSelection(3, 8);
 		editorEngine.copy();
@@ -96,10 +99,6 @@ public class EditorEngineImplTest {
 	 */
 	@Test
 	public final void testEnterText() {
-		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("", editorEngine.getClipboard().getText());
 		editorEngine.enterText("Hello world");
 		assertEquals("Hello world", editorEngine.getBuffer().getBuffer().toString());
 		assertEquals(11, editorEngine.getSelection().getStart());
@@ -117,10 +116,6 @@ public class EditorEngineImplTest {
 	 */
 	@Test
 	public final void testPaste() {
-		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("", editorEngine.getClipboard().getText());
 		editorEngine.enterText("Hello world");
 		editorEngine.changeSelection(3, 8);
 		editorEngine.copy();
@@ -147,10 +142,6 @@ public class EditorEngineImplTest {
 	 */
 	@Test
 	public final void testCut() {
-		assertEquals("", editorEngine.getBuffer().getBuffer().toString());
-		assertEquals(0, editorEngine.getSelection().getStart());
-		assertEquals(0, editorEngine.getSelection().getEnd());
-		assertEquals("", editorEngine.getClipboard().getText());
 		editorEngine.enterText("Hello world");
 		editorEngine.changeSelection(3, 8);
 		editorEngine.cut();
@@ -170,6 +161,24 @@ public class EditorEngineImplTest {
 		assertEquals(1, editorEngine.getSelection().getStart());
 		assertEquals(1, editorEngine.getSelection().getEnd());
 		assertEquals("Helrl", editorEngine.getClipboard().getText());
+	}
+
+	/**
+	 * Test method for {@link fr.istic.aco.minieditor.EditorEngineImpl#printData()}.
+	 */
+	@Test
+	public final void testPrintData() {
+		assertEquals("Buffer:\n[]\nClipboard:\n\n", editorEngine.printData());
+		editorEngine.enterText("Hello world");
+		assertEquals("Buffer:\nHello world[]\nClipboard:\n\n", editorEngine.printData());
+		editorEngine.changeSelection(3, 8);
+		assertEquals("Buffer:\nHel[lo wo]rld\nClipboard:\n\n", editorEngine.printData());
+		editorEngine.cut();
+		assertEquals("Buffer:\nHel[]rld\nClipboard:\nlo wo\n", editorEngine.printData());
+		editorEngine.changeSelection(1, 3);
+		assertEquals("Buffer:\nH[el]rld\nClipboard:\nlo wo\n", editorEngine.printData());
+		editorEngine.copy();
+		assertEquals("Buffer:\nH[el]rld\nClipboard:\nel\n", editorEngine.printData());
 	}
 
 }

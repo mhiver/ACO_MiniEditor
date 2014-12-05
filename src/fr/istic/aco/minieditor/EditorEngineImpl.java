@@ -168,7 +168,7 @@ public class EditorEngineImpl implements EditorEngine
 	 * @see fr.istic.aco.minieditor.EditorEngine#printData()
 	 */
 	@Override
-	public void printData() {
+	public String printData() {
 		
 		int start = selection.getStart();
 		int end = selection.getEnd();
@@ -181,7 +181,7 @@ public class EditorEngineImpl implements EditorEngine
 		buff.append(clipboard.getText());
 		buff.append("\n");
 		
-		System.out.println(buff.toString());
+		return buff.toString();
 	}
 
 }
