@@ -15,7 +15,7 @@ import fr.istic.aco.minieditor.v1.Selection;
  *
  */
 public class SelectionTest {
-	Selection selection;
+	private Selection selection;
 
 	/**
 	 * @throws java.lang.Exception

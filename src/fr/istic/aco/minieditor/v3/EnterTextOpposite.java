@@ -91,18 +91,6 @@ public class EnterTextOpposite extends CommandOpposite implements Recordable {
 		editorEngine.enterTextOpposite(textInBuffer,oldStartSelection,oldEndSelection);
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v1.Command#getName()
-	 */
-	/* pas de nom car command non visible par l'utilisateur 
-	 * */
-	@Override
-	public String getName() {
-		
-		return null;
-	}
-	
 	/**
 	 * classe qui joue le rôle de memento concret
 	 *

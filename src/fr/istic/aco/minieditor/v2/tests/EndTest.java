@@ -18,8 +18,8 @@ import fr.istic.aco.minieditor.v2.RecorderImpl;
  *
  */
 public class EndTest {
-	End end;
-	Recorder recorder;
+	private End end;
+	private Recorder recorder;
 
 	/**
 	 * @throws java.lang.Exception

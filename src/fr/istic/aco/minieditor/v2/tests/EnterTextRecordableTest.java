@@ -25,12 +25,12 @@ import fr.istic.aco.minieditor.v2.RecorderImpl;
  *
  */
 public class EnterTextRecordableTest {
-	EnterTextRecordable enterTextRecordable;
-	EditorEngine editorEngine;
-	UI uI;
-	Recorder recorder;
-	Memento memento;
-	String mementoState;
+	private EnterTextRecordable enterTextRecordable;
+	private EditorEngine editorEngine;
+	private UI uI;
+	private Recorder recorder;
+	private Memento memento;
+	private String mementoState;
 
 	/**
 	 * @throws java.lang.Exception

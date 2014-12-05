@@ -20,9 +20,9 @@ import fr.istic.aco.minieditor.v1.UIImpl;
  *
  */
 public class EnterTextTest {
-	EnterText enterText;
-	EditorEngine editorEngine;
-	UI uI;
+	private EnterText enterText;
+	private EditorEngine editorEngine;
+	private UI uI;
 	
 	/**
 	 * @throws java.lang.Exception

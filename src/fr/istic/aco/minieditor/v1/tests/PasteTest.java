@@ -18,8 +18,8 @@ import fr.istic.aco.minieditor.v1.Paste;
  *
  */
 public class PasteTest {
-	Paste paste;
-	EditorEngine editorEngine;
+	private Paste paste;
+	private EditorEngine editorEngine;
 
 	/**
 	 * @throws java.lang.Exception

@@ -212,7 +212,7 @@ public class EditorEngineImpl implements EditorEngine
 
 	/*
 	 * (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v1.EditorEngine#copyOppositeUndoable(java.lang.String)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#copyOpposite(java.lang.String)
 	 */
 	@Override
 	public void copyOpposite(String clipBoardText) {
@@ -221,7 +221,7 @@ public class EditorEngineImpl implements EditorEngine
 
 	/*
 	 * (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v1.EditorEngine#cutOppositeUndoable(java.lang.String, java.lang.String, int, int)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#cutOpposite(java.lang.String, java.lang.String, int, int)
 	 */
 	@Override
 	public void cutOpposite(String clipBoardText, String textInBuffer,
@@ -238,7 +238,7 @@ public class EditorEngineImpl implements EditorEngine
 
 	/*
 	 * (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v1.EditorEngine#enterTextOppositeUndoable(java.lang.String, int, int)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#enterTextOpposite(java.lang.String, int, int)
 	 */
 	@Override
 	public void enterTextOpposite(String textInBuffer,
@@ -263,10 +263,10 @@ public class EditorEngineImpl implements EditorEngine
 
 	/*
 	 * (non-Javadoc)
-	 * @see fr.istic.aco.minieditor.v1.EditorEngine#pasteUndoable(java.lang.String, int, int)
+	 * @see fr.istic.aco.minieditor.v1.EditorEngine#pasteOpposite(java.lang.String, int, int)
 	 */
 	@Override
-	public void pasteUndoable(String textInBuffer, int oldStartSelection,
+	public void pasteOpposite(String textInBuffer, int oldStartSelection,
 			int oldEndSelection) {
 		this.selection.setStart(oldStartSelection);
 		this.buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);

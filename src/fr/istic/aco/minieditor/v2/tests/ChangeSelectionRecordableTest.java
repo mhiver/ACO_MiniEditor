@@ -25,12 +25,12 @@ import fr.istic.aco.minieditor.v2.RecorderImpl;
  *
  */
 public class ChangeSelectionRecordableTest {
-	ChangeSelectionRecordable changeSelectionRecordable;
-	EditorEngine editorEngine;
-	UI uI;
-	Recorder recorder;
-	Memento memento;
-	int[] mementoState;
+	private ChangeSelectionRecordable changeSelectionRecordable;
+	private EditorEngine editorEngine;
+	private UI uI;
+	private Recorder recorder;
+	private Memento memento;
+	private int[] mementoState;
 
 	/**
 	 * @throws java.lang.Exception

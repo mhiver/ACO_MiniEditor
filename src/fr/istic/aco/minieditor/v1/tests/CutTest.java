@@ -18,8 +18,8 @@ import fr.istic.aco.minieditor.v1.EditorEngineImpl;
  *
  */
 public class CutTest {
-	Cut cut;
-	EditorEngine editorEngine;
+	private Cut cut;
+	private EditorEngine editorEngine;
 
 	/**
 	 * @throws java.lang.Exception

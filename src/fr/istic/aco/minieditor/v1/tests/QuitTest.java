@@ -18,8 +18,8 @@ import fr.istic.aco.minieditor.v1.UIImpl;
  *
  */
 public class QuitTest {
-	Quit quit;
-	UI uI;
+	private Quit quit;
+	private UI uI;
 
 	/**
 	 * @throws java.lang.Exception

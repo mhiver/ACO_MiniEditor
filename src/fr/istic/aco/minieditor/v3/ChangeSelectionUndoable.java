@@ -25,7 +25,7 @@ public class ChangeSelectionUndoable extends ChangeSelection implements Recordab
 	
 	private UndoRedoManager undoRedoManager; 
 	
-	private ChangeSelectionOpposite changeSelectionOppositeUndoable;
+	private ChangeSelectionOpposite changeSelectionOpposite;
 	
 	
 	/**
@@ -39,7 +39,7 @@ public class ChangeSelectionUndoable extends ChangeSelection implements Recordab
 	public ChangeSelectionUndoable(EditorEngine editorEngine, UI uI, UndoRedoManager undoRedoManager) {
 		super(editorEngine, uI);
 		this.undoRedoManager = undoRedoManager;
-		changeSelectionOppositeUndoable = new ChangeSelectionOpposite(editorEngine, undoRedoManager, this);
+		changeSelectionOpposite = new ChangeSelectionOpposite(editorEngine, undoRedoManager, this);
 	}
 	
 	/* (non-Javadoc)
@@ -74,10 +74,10 @@ public class ChangeSelectionUndoable extends ChangeSelection implements Recordab
 	public void execute() {
 		
 			if (!undoRedoManager.getIsInRedo()) {
-				undoRedoManager.record(changeSelectionOppositeUndoable);
+				undoRedoManager.record(changeSelectionOpposite);
 				super.execute();
 			} else {
-				undoRedoManager.record(changeSelectionOppositeUndoable);
+				undoRedoManager.record(changeSelectionOpposite);
 				editorEngine.changeSelection(start, end);
 			}
 			

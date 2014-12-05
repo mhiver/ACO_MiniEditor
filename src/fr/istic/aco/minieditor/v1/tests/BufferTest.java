@@ -15,7 +15,7 @@ import fr.istic.aco.minieditor.v1.Buffer;
  *
  */
 public class BufferTest {
-	Buffer buffer;
+	private Buffer buffer;
 
 	/**
 	 * @throws java.lang.Exception

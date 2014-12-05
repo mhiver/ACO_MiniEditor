@@ -13,7 +13,6 @@ import org.mockito.Mockito;
 import fr.istic.aco.minieditor.v1.EditorEngine;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 import fr.istic.aco.minieditor.v2.CopyRecordable;
-import fr.istic.aco.minieditor.v2.MemCopy;
 import fr.istic.aco.minieditor.v2.Memento;
 import fr.istic.aco.minieditor.v2.Recorder;
 import fr.istic.aco.minieditor.v2.RecorderImpl;
@@ -23,10 +22,9 @@ import fr.istic.aco.minieditor.v2.RecorderImpl;
  *
  */
 public class CopyRecordableTest {
-	CopyRecordable copyRecordable;
-	EditorEngine editorEngine;
-	Recorder recorder;
-	Memento memento;
+	private CopyRecordable copyRecordable;
+	private EditorEngine editorEngine;
+	private Recorder recorder;
 
 	/**
 	 * @throws java.lang.Exception
@@ -36,7 +34,6 @@ public class CopyRecordableTest {
 		editorEngine = Mockito.mock(EditorEngineImpl.class);
 		recorder = Mockito.mock(RecorderImpl.class);
 		copyRecordable = new CopyRecordable(editorEngine, recorder);
-		memento = Mockito.mock(MemCopy.class);
 	}
 
 	/**

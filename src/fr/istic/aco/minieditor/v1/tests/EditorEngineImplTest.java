@@ -15,8 +15,7 @@ import fr.istic.aco.minieditor.v1.EditorEngineImpl;
  *
  */
 public class EditorEngineImplTest {
-
-	EditorEngineImpl editorEngine;
+	private EditorEngineImpl editorEngine;
 	
 	/**
 	 * @throws java.lang.Exception

@@ -15,7 +15,7 @@ import fr.istic.aco.minieditor.v1.Clipboard;
  *
  */
 public class ClipboardTest {
-	Clipboard clipboard;
+	private Clipboard clipboard;
 
 	/**
 	 * @throws java.lang.Exception

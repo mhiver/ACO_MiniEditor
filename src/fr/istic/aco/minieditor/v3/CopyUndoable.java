@@ -27,7 +27,7 @@ public class CopyUndoable extends Copy implements Recordable {
 	 * commande inverse a copy
 	 */
 	
-	private CopyOpposite copyOppositeUndoable;
+	private CopyOpposite copyOpposite;
 	
 	
 	/**
@@ -41,7 +41,7 @@ public class CopyUndoable extends Copy implements Recordable {
 	public CopyUndoable(EditorEngine editorEngine, UndoRedoManager undoRedoManager) {
 		super(editorEngine);
 		this.undoRedoManager = undoRedoManager;
-		copyOppositeUndoable = new CopyOpposite(editorEngine, undoRedoManager, this);
+		copyOpposite = new CopyOpposite(editorEngine, undoRedoManager, this);
 	}
 	
 	/* (non-Javadoc)
@@ -69,7 +69,7 @@ public class CopyUndoable extends Copy implements Recordable {
 	 */
 	
 	public void execute() {
-			undoRedoManager.record(copyOppositeUndoable);
+			undoRedoManager.record(copyOpposite);
 			super.execute();
 	}
 

@@ -154,7 +154,7 @@ public  interface EditorEngine
 	 * @param oldStartSelection
 	 * @param oldEndSelection
 	 */
-	public void pasteUndoable(String textInBuffer, int oldStartSelection,
+	public void pasteOpposite(String textInBuffer, int oldStartSelection,
 			int oldEndSelection);
 
 	

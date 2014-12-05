@@ -22,9 +22,8 @@ import fr.istic.aco.minieditor.v1.UIImpl;
  *
  */
 public class UIImplTest {
-	
-	UIImpl uI;
-	OutputStream os;
+	private UIImpl uI;
+	private OutputStream os;
 	
 	private String inputArrayToString(String[] arr) {
 		StringBuilder res = new StringBuilder();

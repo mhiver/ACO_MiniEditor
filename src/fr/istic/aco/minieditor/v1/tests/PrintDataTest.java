@@ -20,9 +20,9 @@ import fr.istic.aco.minieditor.v1.UIImpl;
  *
  */
 public class PrintDataTest {
-	PrintData printData;
-	EditorEngine editorEngine;
-	UI uI;
+	private PrintData printData;
+	private EditorEngine editorEngine;
+	private UI uI;
 
 	/**
 	 * @throws java.lang.Exception

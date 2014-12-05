@@ -16,7 +16,7 @@ import fr.istic.aco.minieditor.v2.Memento;
  *
  */
 public class MemPasteTest {
-	Memento memento;
+	private Memento memento;
 
 	/**
 	 * @throws java.lang.Exception

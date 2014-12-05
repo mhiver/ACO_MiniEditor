@@ -15,8 +15,8 @@ import fr.istic.aco.minieditor.v1.EditorEngineImpl;
  *
  */
 public class CopyTest {
-	Copy copy;
-	EditorEngine editorEngine;
+	private Copy copy;
+	private EditorEngine editorEngine;
 
 	/**
 	 * @throws java.lang.Exception

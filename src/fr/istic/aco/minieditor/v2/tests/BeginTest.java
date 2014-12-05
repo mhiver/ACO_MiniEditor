@@ -18,8 +18,8 @@ import fr.istic.aco.minieditor.v2.RecorderImpl;
  *
  */
 public class BeginTest {
-	Begin begin;
-	Recorder recorder;
+	private Begin begin;
+	private Recorder recorder;
 
 	/**
 	 * @throws java.lang.Exception

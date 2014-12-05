@@ -20,9 +20,9 @@ import org.mockito.Mockito;
  *
  */
 public class ChangeSelectionTest {
-	ChangeSelection changeSelection;
-	EditorEngine editorEngine;
-	UIImpl uI;
+	private ChangeSelection changeSelection;
+	private EditorEngine editorEngine;
+	private UIImpl uI;
 
 	/**
 	 * @throws java.lang.Exception
