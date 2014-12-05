@@ -163,7 +163,7 @@ public class RecorderImpl implements Recorder{
 	 * @param i
 	 * @return Memento
 	 */
-	public Memento getMementoElement(int i) {
+	public Memento getMementosElement(int i) {
 		return mementos.get(i);
 	}
 	
@@ -179,7 +179,7 @@ public class RecorderImpl implements Recorder{
 	 * Retourne la taille de la liste mementos
 	 * @return int
 	 */
-	public int getMementoLength() {
+	public int getMementosLength() {
 		return mementos.size();
 	}
 	
@@ -197,7 +197,7 @@ public class RecorderImpl implements Recorder{
 	 * @param i
 	 * @return Memento
 	 */
-	public Memento getNextMementoElement(int i) {
+	public Memento getNextMementosElement(int i) {
 		return nextMementos.get(i);
 	}
 	
@@ -213,7 +213,7 @@ public class RecorderImpl implements Recorder{
 	 * Retourne la taille de la liste nextMementos
 	 * @return int
 	 */
-	public int getNextMementoLength() {
+	public int getNextMementosLength() {
 		return nextMementos.size();
 	}
 
