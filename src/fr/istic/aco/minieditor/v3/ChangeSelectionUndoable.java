@@ -30,10 +30,12 @@ public class ChangeSelectionUndoable extends ChangeSelection implements Recordab
 	
 	/**
 	 * editorEngine doit être non nul
+	 * uI doit être non nul
 	 * undoRedoManager doit être non nul
 	 * 
 	 * 
 	 * @param editorEngine
+	 * @param uI
 	 * @param undoRedoManager
 	 */
 	public ChangeSelectionUndoable(EditorEngine editorEngine, UI uI, UndoRedoManager undoRedoManager) {
