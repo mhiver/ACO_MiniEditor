@@ -33,6 +33,7 @@ public class EnterTextUndoable extends EnterText implements Recordable {
 	
 	/**
 	 * editorEngine doit être non nul
+	 * uI doit être non nul
 	 * undoRedoManager doit être non nul
 	 * 
 	 * 
@@ -40,7 +41,7 @@ public class EnterTextUndoable extends EnterText implements Recordable {
 	 * @param uI 
 	 * @param undoRedoManager
 	 */
-	public EnterTextUndoable(EditorEngine editorEngine,UI uI, UndoRedoManager undoRedoManager) {
+	public EnterTextUndoable(EditorEngine editorEngine, UI uI, UndoRedoManager undoRedoManager) {
 		super(editorEngine, uI);
 		this.undoRedoManager = undoRedoManager;
 		enterTextOpposite = new EnterTextOpposite(editorEngine, undoRedoManager, this);

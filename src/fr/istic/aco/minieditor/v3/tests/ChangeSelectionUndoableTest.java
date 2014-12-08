@@ -46,15 +46,25 @@ public class ChangeSelectionUndoableTest {
 	@Test
 	public final void testExecute() {
 		InOrder inOrder = Mockito.inOrder(undoRedoManager, editorEngine);
-		
-		Mockito.when(undoRedoManager.getIsInRedo()).thenReturn(false);
-		changeSelectionUndoable.execute();
-		inOrder.verify(undoRedoManager).record(cmd);
 
 		Mockito.when(undoRedoManager.getIsInRedo()).thenReturn(true);
 		changeSelectionUndoable.execute();
-		inOrder.verify(undoRedoManager).record(cmd);
+		inOrder.verify(undoRedoManager).record(Mockito.any(ChangeSelectionOpposite.class));
 		inOrder.verify(editorEngine).changeSelection(0, 0);
+		
+		Mockito.when(undoRedoManager.getIsInRedo()).thenReturn(false);
+		Mockito.when(uI.getStart()).thenReturn(10);
+		Mockito.when(uI.getEnd()).thenReturn(20);
+		changeSelectionUndoable.execute();
+		inOrder.verify(undoRedoManager).record(Mockito.any(ChangeSelectionOpposite.class));
+		inOrder.verify(editorEngine).changeSelection(10, 20);
+
+		Mockito.when(undoRedoManager.getIsInRedo()).thenReturn(true);
+		Mockito.when(uI.getStart()).thenReturn(30);
+		Mockito.when(uI.getEnd()).thenReturn(40);
+		changeSelectionUndoable.execute();
+		inOrder.verify(undoRedoManager).record(Mockito.any(ChangeSelectionOpposite.class));
+		inOrder.verify(editorEngine).changeSelection(10, 20);
 	}
 
 	/**

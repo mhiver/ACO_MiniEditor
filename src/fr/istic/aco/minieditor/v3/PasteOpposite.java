@@ -29,23 +29,25 @@ public class PasteOpposite extends CommandOpposite implements Recordable {
 	
 	private UndoRedoManager undoRedoManager;
 	
-	/* text à remettre dans le clipBoard */
+	/* texte à remettre dans le buffer */
 	private String textInBuffer;
 	
-	/* text à remettre dans le clipBoard */
+	/* début de sélection à restaurer */
 	private int oldStartSelection;
 	
-	/* text à remettre dans le clipBoard */
+	/* fin de sélection à restaurer */
 	private int oldEndSelection;
 	
 	
 	/**
 	 * editorEngine doit être non nul
 	 * undoRedoManager doit être non nul
+	 * pasteUndoable doit être non nul
 	 * 
 	 * 
 	 * @param editorEngine
 	 * @param undoRedoManager
+	 * @param pasteUndoable
 	 */
 	
 	public PasteOpposite(EditorEngine editorEngine,

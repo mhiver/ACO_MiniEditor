@@ -29,16 +29,18 @@ public class CopyOpposite extends CommandOpposite implements Recordable {
 	
 	private UndoRedoManager undoRedoManager;
 	
-	/* text à remettre dans le clipBoard */
+	/* texte à remettre dans le clipBoard */
 	private String clipBoardText;
 	
 	/**
 	 * editorEngine doit être non nul
 	 * undoRedoManager doit être non nul
+	 * copyUndoable doit être non nul
 	 * 
 	 * 
 	 * @param editorEngine
 	 * @param undoRedoManager
+	 * @param copyUndoable
 	 */
 	
 	public CopyOpposite(EditorEngine editorEngine,

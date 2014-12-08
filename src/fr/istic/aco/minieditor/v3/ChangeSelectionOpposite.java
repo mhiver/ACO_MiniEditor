@@ -29,19 +29,20 @@ public class ChangeSelectionOpposite extends CommandOpposite implements Recordab
 	
 	private UndoRedoManager undoRedoManager;
 	
-	/* text à remettre dans le clipBoard */
+	/* début de sélection à restaurer */
 	private int oldStartSelection;
 	
-	/* text à remettre dans le clipBoard */
+	/* fin de sélection à restaurer */
 	private int oldEndSelection;
 	
 	/**
 	 * editorEngine doit être non nul
 	 * undoRedoManager doit être non nul
-	 * 
+	 * changeSelectionUndoable doit être non nul
 	 * 
 	 * @param editorEngine
 	 * @param undoRedoManager
+	 * @param changeSelectionUndoable
 	 */
 	
 	public ChangeSelectionOpposite(EditorEngine editorEngine,
