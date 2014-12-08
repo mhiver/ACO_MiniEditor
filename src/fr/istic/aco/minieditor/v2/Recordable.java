@@ -12,7 +12,7 @@ public interface Recordable {
 
 	
 	/**
-	 * méthode obligatoire du patron de conception memento qui revoit un objet memento associé à l'objet enregistrable
+	 * méthode obligatoire du patron de conception memento qui renvoie un objet memento associé à l'objet enregistrable
 	 * 
 	 * @return memento m
 	 */

@@ -32,8 +32,8 @@ public class Quit implements Command
 	 * va stoper la boucle de l'invoker, ici l'uI
 	 * 
 	 */
-	
-	/**
+
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#execute()
 	 */
 	@Override
@@ -45,8 +45,8 @@ public class Quit implements Command
 	/*
 	 * @return "Quit"
 	 */
-	
-	/**
+
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#getName()
 	 */
 	@Override

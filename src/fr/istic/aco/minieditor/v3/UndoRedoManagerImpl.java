@@ -194,7 +194,7 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 		}
 		
 	}
-	
+
 	/*
 	 * oracle qui dit si on sauvegarde une commande ou l'état de la mémoire pour la valeur i
 	 * 

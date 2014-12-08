@@ -20,7 +20,7 @@ public  interface UI
 	/**
 	 * retourne la valeur entrer par l'utilisateur à travers l'uI
 	 * 
-	 * ecris dans la sortie un message lié à la valeur end
+	 * ecrit dans la sortie un message lié à la valeur end
 	 * 
 	 * si valeur entrée par l'utilisateur non valide, retourne -1
 	 * 
@@ -32,7 +32,7 @@ public  interface UI
 	/**
 	 * retourne la valeur entrer par l'utilisateur à travers l'uI
 	 * 
-	 * ecris dans la sortie un message lié à la valeur start
+	 * ecrit dans la sortie un message lié à la valeur start
 	 * 
 	 * si valeur entrée par l'utilisateur non valide, retourne -1
 	 * 
@@ -44,7 +44,7 @@ public  interface UI
 	/**
 	 * retourne la valeur entrer par l'utilisateur à travers l'uI
 	 * 
-	 * ecris dans la sortie un message lié à la valeur text
+	 * ecrit dans la sortie un message lié à la valeur text
 	 * 
 	 * 
 	 * @return s String
@@ -53,22 +53,16 @@ public  interface UI
 	public String getText();
 	
 	 /**
-	* Starts the reading of the read stream set by setReadStream operation
-	* 
-	* Commence la lecture sur les entrées utilisateur par la méthode setReadStream
+	* Commence la lecture sur les entrées utilisateur par l'opération setReadStream
 	*/
 	public void runInvokerLoop();
 	
 	/**
-	* Stops the read stream loop now.
-	* 
-	* Va stopper la boucle de lecture des entrée utilisateur quand appelé
+	* Arrête la boucle de lecture des entrée utilisateur quand appelé
 	*/
 	public void stopLoop();
 	
 	/**
-	* Sets the read stream that will be used by runInvokerLoop
-	* 
 	* Change le flux de lecture qui sera utilisé par la boucle de l'invoqueur
 	*
 	* @param inputStream the read stream
@@ -77,9 +71,7 @@ public  interface UI
 	public void setReadStream(InputStream inputStream);
 	
 	/**
-	* Sets the print stream that will be used to display output and messages
-	* 
-	* Change la sortie qui va afficher les messages de sorties
+	* Change le flux qui affiche les messages de sortie
 	*
 	* @param printStream the read stream
 	* @throws IllegalArgumentException if printStream is null
@@ -87,9 +79,7 @@ public  interface UI
 	public void setPrintStream(PrintStream printStream);
 	
 	/**
-	* Registers a new keyword/command pair
-	*
-	* Enregistre une nouvelle paire keyword/command
+	* Enregistre une nouvelle paire mot-clé/commande
 	*
 	* @param keyword a non-null String
 	* @param cmd a non-null Command reference

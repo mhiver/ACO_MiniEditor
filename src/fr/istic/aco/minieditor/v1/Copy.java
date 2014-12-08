@@ -32,7 +32,7 @@ public class Copy implements Command
 	 * méthode qui va copier la sélection courante dans le clipboard
 	 */
 	
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#execute()
 	 */
 	@Override
@@ -45,7 +45,7 @@ public class Copy implements Command
 	 * @return "Copy"
 	 */
 
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#getName()
 	 */
 	@Override

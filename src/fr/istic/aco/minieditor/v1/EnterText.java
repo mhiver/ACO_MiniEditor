@@ -53,8 +53,8 @@ public class EnterText implements Command
 	 * sera nulle
 	 * 
 	 */
-	
-	/**
+
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#execute()
 	 */
 	@Override
@@ -67,8 +67,8 @@ public class EnterText implements Command
 	/*
 	 * @return "Enter text"
 	 */
-	
-	/**
+
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#getName()
 	 */
 	@Override

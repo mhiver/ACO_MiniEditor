@@ -22,10 +22,10 @@ public class EditorEngineImplRecordable extends EditorEngineImpl implements Reco
 	@Override
 	public Memento getMemento() {
 
-		StringBuffer bufferString = this.getBuffer().getBuffer();
-		String clipboardText = this.getClipboard().getText();
-		int selectionStart = this.getSelection().getStart();
-		int selectionEnd = this.getSelection().getEnd();
+		StringBuffer bufferString = getBuffer().getBuffer();
+		String clipboardText = getClipboard().getText();
+		int selectionStart = getSelection().getStart();
+		int selectionEnd = getSelection().getEnd();
 		
 		Memento m = new MemEditorEngineImpl(bufferString, clipboardText, selectionStart, selectionEnd);
 		
@@ -45,10 +45,10 @@ public class EditorEngineImplRecordable extends EditorEngineImpl implements Reco
 		int selectionStart = (int) savedState[2];
 		int selectionEnd = (int) savedState[3];
 		
-		this.buffer.setContent(0, this.buffer.getLength(), bufferString.toString());
-		this.clipboard.setText(clipboardText);
-		this.selection.setStart(selectionStart);
-		this.selection.setEnd(selectionEnd);
+		buffer.setContent(0, buffer.getLength(), bufferString.toString());
+		clipboard.setText(clipboardText);
+		selection.setStart(selectionStart);
+		selection.setEnd(selectionEnd);
 		
 	}
 

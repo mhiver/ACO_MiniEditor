@@ -90,7 +90,7 @@ public class PasteOpposite extends CommandOpposite implements Recordable {
 	
 	public void execute() {
 		undoRedoManager.record(pasteUndoable);
-		editorEngine.pasteOpposite(textInBuffer,oldStartSelection,oldEndSelection);
+		editorEngine.pasteOpposite(textInBuffer, oldStartSelection, oldEndSelection);
 	}
 	
 	/**

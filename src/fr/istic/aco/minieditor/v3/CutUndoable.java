@@ -46,7 +46,7 @@ public class CutUndoable extends Cut implements Recordable {
 	 */
 	@Override
 	public Memento getMemento() {	
-		Memento m = new MemCopy();
+		Memento m = new MemCut();
 		
 		return m;
 	}
@@ -76,7 +76,7 @@ public class CutUndoable extends Cut implements Recordable {
 	 *
 	 */
 	
-	private class MemCopy implements Memento {
+	private class MemCut implements Memento {
 
 		@Override
 		public Object getSavedState() {

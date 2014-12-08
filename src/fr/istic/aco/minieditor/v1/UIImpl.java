@@ -17,6 +17,14 @@ import java.util.TreeMap;
  * @version 1.0
  */
 
+/**
+ * @author 12001247
+ *
+ */
+/**
+ * @author 12001247
+ *
+ */
 public class UIImpl implements UI {
 	
 	/* ensemble des commandes visibles par l'uI*/
@@ -75,7 +83,7 @@ public class UIImpl implements UI {
 		return sb.substring(0, sb.length()-2);
 	}
 
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.UI#getEnd()
 	 */
 	@Override
@@ -84,7 +92,7 @@ public class UIImpl implements UI {
 		return readUserNumber();
 	}
 
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.UI#getStart()
 	 */
 	@Override
@@ -93,7 +101,7 @@ public class UIImpl implements UI {
 		return readUserNumber();
 	}
 
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.UI#getText()
 	 */
 	@Override
@@ -110,7 +118,7 @@ public class UIImpl implements UI {
 	}
 
 
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.UI#runInvokerLoop()
 	 */
 	@Override
@@ -135,7 +143,7 @@ public class UIImpl implements UI {
 	}
 
 
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.UI#stopLoop()
 	 */
 	@Override
@@ -154,8 +162,8 @@ public class UIImpl implements UI {
 		return bufferedReader.readLine();
 	}
 	
-	/**
-	 * @see fr.istic.aco.minieditor.v1.UI#addCommand(String keyword, Command cmd)
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.UI#addCommand(java.lang.String, fr.istic.aco.minieditor.v1.Command)
 	 */
 	@Override
 	public void addCommand(String keyword, Command cmd) {
@@ -165,12 +173,18 @@ public class UIImpl implements UI {
 		commands.put(keyword,cmd);
 	}
 
+	/**
+	 * Retourne la liste des commandes
+	 * Utilisé uniquement pour les tests
+	 * 
+	 * @return Map<String, Command>
+	 */
 	public Map<String, Command> getCommands() {
 		return new TreeMap<String, Command>(commands);
 	}
 	
-	/**
-	 * @see fr.istic.aco.minieditor.v1.UI#setReadStream(InputStream inputStream)
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.UI#setReadStream(java.io.InputStream)
 	 */
 	@Override
 	public void setReadStream(InputStream inputStream) {
@@ -180,12 +194,18 @@ public class UIImpl implements UI {
 		this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 	}
 
+	/**
+	 * Retourne le flux de lecture
+	 * Utilisé uniquement pour les tests
+	 * 
+	 * @return BufferedReader
+	 */
 	public BufferedReader getReadStream() {
 		return bufferedReader;
 	}
 	
-	/**
-	 * @see fr.istic.aco.minieditor.v1.UI#setPrintStream(PrintStream printStream)
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.UI#setPrintStream(java.io.PrintStream)
 	 */
 	@Override
 	public void setPrintStream(PrintStream printStream) {
@@ -197,13 +217,18 @@ public class UIImpl implements UI {
 	
 	
 	/**
-	 * Retourne l'attribut printStream
+	 * Retourne le flux d'écriture
+	 * Utilisé uniquement pour les tests
+	 * 
 	 * @return PrintStream
 	 */
 	public PrintStream getPrintStream() {
 		return printStream;
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.istic.aco.minieditor.v1.UI#printText(java.lang.String)
+	 */
 	@Override
 	public void printText(String text) {
 		printStream.println(text);

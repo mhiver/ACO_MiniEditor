@@ -37,7 +37,7 @@ public class PrintData implements Command {
 	 * va afficher l'etat courant des donnees de l'editeur de texte
 	 */
 	
-	/**
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#execute()
 	 */
 	@Override	
@@ -48,8 +48,8 @@ public class PrintData implements Command {
 	/*
 	 * @return "Print data"
 	 */
-	
-	/**
+
+	/* (non-Javadoc)
 	 * @see fr.istic.aco.minieditor.v1.Command#getName()
 	 */
 	@Override
