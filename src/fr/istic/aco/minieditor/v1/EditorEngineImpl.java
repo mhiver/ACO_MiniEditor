@@ -52,9 +52,9 @@ public class EditorEngineImpl implements EditorEngine
 	 * 
 	 */
 	public EditorEngineImpl() {
-		this.buffer = new Buffer();
-		this.clipboard = new Clipboard();
-		this.selection = new Selection();
+		buffer = new Buffer();
+		clipboard = new Clipboard();
+		selection = new Selection();
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	@Override
 	public String getClipboardText() {
-		return this.clipboard.getText();
+		return clipboard.getText();
 	}
 	/*
 	 * (non-Javadoc)
@@ -198,7 +198,7 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	@Override
 	public int getStartSelection() {
-		return this.selection.getStart();
+		return selection.getStart();
 	}
 
 	/*
@@ -207,7 +207,7 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	@Override
 	public int getEndSelection() {
-		return this.selection.getEnd();
+		return selection.getEnd();
 	}
 
 	/*
@@ -216,7 +216,7 @@ public class EditorEngineImpl implements EditorEngine
 	 */
 	@Override
 	public void copyOpposite(String clipBoardText) {
-		this.clipboard.setText(clipBoardText);
+		clipboard.setText(clipBoardText);
 	}
 
 	/*
@@ -230,10 +230,10 @@ public class EditorEngineImpl implements EditorEngine
 		int start = selection.getStart();
 		int end = selection.getEnd();
 		
-		this.clipboard.setText(clipBoardText);
-		this.buffer.setContent(start, end, textInBuffer);
-		this.selection.setStart(oldStartSelection);
-		this.selection.setEnd(oldEndSelection);
+		clipboard.setText(clipBoardText);
+		buffer.setContent(start, end, textInBuffer);
+		selection.setStart(oldStartSelection);
+		selection.setEnd(oldEndSelection);
 	}
 
 	/*
@@ -243,9 +243,9 @@ public class EditorEngineImpl implements EditorEngine
 	@Override
 	public void enterTextOpposite(String textInBuffer,
 			int oldStartSelection, int oldEndSelection) {
-		this.selection.setStart(oldStartSelection);
-		this.buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);
-		this.selection.setEnd(oldEndSelection);
+		selection.setStart(oldStartSelection);
+		buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);
+		selection.setEnd(oldEndSelection);
 		
 	}
 
@@ -256,8 +256,8 @@ public class EditorEngineImpl implements EditorEngine
 	@Override
 	public void changeSelectionOpposite(int oldStartSelection,
 			int oldEndSelection) {
-		this.selection.setStart(oldStartSelection);
-		this.selection.setEnd(oldEndSelection);
+		selection.setStart(oldStartSelection);
+		selection.setEnd(oldEndSelection);
 		
 	}
 
@@ -268,9 +268,9 @@ public class EditorEngineImpl implements EditorEngine
 	@Override
 	public void pasteOpposite(String textInBuffer, int oldStartSelection,
 			int oldEndSelection) {
-		this.selection.setStart(oldStartSelection);
-		this.buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);
-		this.selection.setEnd(oldEndSelection);
+		selection.setStart(oldStartSelection);
+		buffer.setContent(selection.getStart(), selection.getEnd(), textInBuffer);
+		selection.setEnd(oldEndSelection);
 		
 	}
 
