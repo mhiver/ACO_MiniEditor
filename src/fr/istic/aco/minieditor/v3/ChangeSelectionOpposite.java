@@ -83,7 +83,7 @@ public class ChangeSelectionOpposite extends CommandOpposite implements Recordab
 	
 	public void execute() {
 		undoRedoManager.record(changeSelectionUndoable);
-		editorEngine.changeSelectionOpposite(oldStartSelection,oldEndSelection);
+		editorEngine.changeSelectionOpposite(oldStartSelection, oldEndSelection);
 	}
 	
 	/**

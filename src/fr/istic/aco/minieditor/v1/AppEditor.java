@@ -36,7 +36,7 @@ public class AppEditor
 	
 	/**
 	 * méthode qui va lancer la boucle principale de l'éditeur de texte après avoir initialisé
-	 * tout les objets nécessaires
+	 * tous les objets nécessaires
 	 * 
 	 * 
 	 */

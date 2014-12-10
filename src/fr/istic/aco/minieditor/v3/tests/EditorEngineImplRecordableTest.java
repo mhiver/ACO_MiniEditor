@@ -5,12 +5,8 @@ package fr.istic.aco.minieditor.v3.tests;
 
 import static org.junit.Assert.*;
 
-import java.lang.annotation.Target;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import fr.istic.aco.minieditor.v1.Buffer;
@@ -24,12 +20,12 @@ import fr.istic.aco.minieditor.v3.EditorEngineImplRecordable;
  *
  */
 public class EditorEngineImplRecordableTest {
-	EditorEngineImplRecordable spy;
-	Buffer buffer;
-	Clipboard clipboard;
-	Selection selection;
-	StringBuffer stringBuffer;
-	String clipboardText = "Hello world";
+	private EditorEngineImplRecordable spy;
+	private Buffer buffer;
+	private Clipboard clipboard;
+	private Selection selection;
+	private StringBuffer stringBuffer;
+	private String clipboardText = "Hello world";
 
 	/**
 	 * @throws java.lang.Exception
