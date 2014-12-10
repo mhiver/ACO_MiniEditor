@@ -8,7 +8,7 @@ import fr.istic.aco.minieditor.v1.*;
  * 
  * @author Baptiste Tessiau 
  * @author Matthieu Hiver
- * @version 1.0
+ * @version 1.1
  */
 
 public class AppEditor_v2

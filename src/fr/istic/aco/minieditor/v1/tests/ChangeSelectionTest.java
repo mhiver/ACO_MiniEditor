@@ -15,7 +15,9 @@ import fr.istic.aco.minieditor.v1.UIImpl;
 import org.mockito.Mockito;
 
 /**
- * @author 12001247
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  *
  */
 public class ChangeSelectionTest {

@@ -12,7 +12,9 @@ import fr.istic.aco.minieditor.v2.MemCopy;
 import fr.istic.aco.minieditor.v2.Memento;
 
 /**
- * @author Matthieu
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.1
  *
  */
 public class MemCopyTest {

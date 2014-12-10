@@ -13,7 +13,9 @@ import fr.istic.aco.minieditor.v1.Copy;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 
 /**
- * @author 12001247
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  *
  */
 public class CopyTest {

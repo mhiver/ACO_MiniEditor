@@ -14,7 +14,9 @@ import fr.istic.aco.minieditor.v2.Recorder;
 import fr.istic.aco.minieditor.v2.RecorderImpl;
 
 /**
- * @author 12001247
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.1
  *
  */
 public class BeginTest {

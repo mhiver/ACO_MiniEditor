@@ -21,7 +21,9 @@ import fr.istic.aco.minieditor.v2.Recorder;
 import fr.istic.aco.minieditor.v2.RecorderImpl;
 
 /**
- * @author Matthieu
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.1
  *
  */
 public class EnterTextRecordableTest {
