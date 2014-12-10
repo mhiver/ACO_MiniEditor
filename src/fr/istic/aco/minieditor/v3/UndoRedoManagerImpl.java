@@ -138,7 +138,7 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 		if (this.isInRedo) {
 			this.numberCmd = this.numberCmd -1;
 			
-			if (savedEditorEngine(this.numberCmd)) {
+			if (saveEditorEngineState(this.numberCmd)) {
 				Memento m = ((Recordable) this.editorEngine).getMemento();
 				
 				this.editorEngineStatesBefore.put(this.numberCmd, m);
@@ -156,7 +156,7 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 		} else if (this.isInUndo) {
 			this.numberCmd = this.numberCmd +1;
 			
-			if (savedEditorEngine(this.numberCmd)) {
+			if (saveEditorEngineState(this.numberCmd)) {
 				Memento m = ((Recordable) this.editorEngine).getMemento();
 				
 				this.editorEngineStatesAfter.put(this.numberCmd, m);
@@ -173,7 +173,7 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 			
 		} else {
 			
-			if (savedEditorEngine(this.numberCmd)) {
+			if (saveEditorEngineState(this.numberCmd)) {
 				Memento m = ((Recordable) this.editorEngine).getMemento();
 				
 				this.editorEngineStatesBefore.put(this.numberCmd, m);
@@ -201,7 +201,7 @@ public class UndoRedoManagerImpl implements UndoRedoManager {
 	 * @param Integer i
 	 * 
 	 */
-	private boolean savedEditorEngine(Integer i) {
+	private boolean saveEditorEngineState(Integer i) {
 		return ((i % 3) == 0);
 	}
 
