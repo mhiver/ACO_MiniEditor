@@ -16,7 +16,9 @@ import fr.istic.aco.minieditor.v1.UI;
 import fr.istic.aco.minieditor.v1.UIImpl;
 
 /**
- * @author 12001247
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  *
  */
 public class PrintDataTest {

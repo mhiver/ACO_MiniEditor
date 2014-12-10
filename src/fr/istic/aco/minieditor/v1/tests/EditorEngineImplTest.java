@@ -11,7 +11,9 @@ import org.junit.Test;
 import fr.istic.aco.minieditor.v1.EditorEngineImpl;
 
 /**
- * @author 12001247
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.0
  *
  */
 public class EditorEngineImplTest {

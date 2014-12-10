@@ -16,7 +16,9 @@ import fr.istic.aco.minieditor.v3.PasteUndoable;
 import fr.istic.aco.minieditor.v3.UndoRedoManager;
 
 /**
- * @author Matthieu
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.2
  *
  */
 public class PasteOppositeTest {

@@ -13,7 +13,9 @@ import fr.istic.aco.minieditor.v3.Undo;
 import fr.istic.aco.minieditor.v3.UndoRedoManager;
 
 /**
- * @author 12001247
+ * @author Baptiste Tessiau 
+ * @author Matthieu Hiver
+ * @version 1.2
  *
  */
 public class UndoTest {
